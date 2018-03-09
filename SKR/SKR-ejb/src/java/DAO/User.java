@@ -10,5 +10,7 @@ package DAO;
  * @author user
  */
 public class User {
-    
+    public void AddUser()
+    {
+    }
 }
