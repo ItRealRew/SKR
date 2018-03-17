@@ -17,6 +17,15 @@ public class MainBean implements Serializable {
     private String Login;
     private String Password;
     private String Authentication;
+    private String Name;
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
 
     public String getAuthentication() {
         return Authentication;
@@ -42,17 +51,29 @@ public class MainBean implements Serializable {
         this.Password = Password;
     }
 
-    public void InputSystem() {
-        String UserLogin = "SKR";
+    public String InputSystem() {
+        String UserLogin = "AdminSKR";
         String UserPassword = "SKR";
-        if (Login.compareTo(UserLogin) == 0) {
-            if (Password.compareTo(UserPassword) == 0) {
-                Authentication = "True";
-            } else {
-                Authentication = "login or Password - invalid";
-            }
+        if (Login.compareTo(UserLogin) == 0 && Password.compareTo(UserPassword) == 0) {
+            Authentication = "True";
+            Name = "ProninAdmin";
+            return "Manage.xhtml";
         } else {
-            Authentication = "login or Password - invalid";
+            return HardCode();
         }
     }
+
+    public String HardCode() {
+        String UserLogin = "SKR";
+        String UserPassword = "SKR";
+        if (Login.compareTo(UserLogin) == 0 && Password.compareTo(UserPassword) == 0) {
+            Authentication = "True";
+            Name = "ProninUsers";
+            return "UStorage.xhtml";
+        } else {
+            Authentication = "login or Password - invalid";
+            return "404.xhtml";
+        }
+    }
+
 }
