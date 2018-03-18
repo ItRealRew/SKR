@@ -5,12 +5,15 @@
  */
 package DAO;
 
+import Entity.User;
+import javax.ejb.Local;
+
 /**
  *
  * @author user
  */
-public class User {
-    public void AddUser()
-    {
-    }
+@Local
+public interface LoginLocal {
+
+    public User GetUserLogin(String login, String Password);
 }
