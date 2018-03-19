@@ -9,10 +9,15 @@ package Beans;
  *
  * @author user
  */
+import Entity.User;
 import java.io.IOException;
 import java.io.Serializable;
+import javax.ejb.EJB;
 
 public class MainBean implements Serializable {
+
+    @EJB
+    private DAO.LoginLocal login;
 
     private String Login;
     private String Password;
@@ -52,27 +57,19 @@ public class MainBean implements Serializable {
     }
 
     public String InputSystem() {
-        String UserLogin = "AdminSKR";
-        String UserPassword = "SKR";
-        if (Login.compareTo(UserLogin) == 0 && Password.compareTo(UserPassword) == 0) {
-            Authentication = "True";
-            Name = "ProninAdmin";
-            return "Manage.xhtml";
-        } else {
-            return HardCode();
-        }
-    }
-
-    public String HardCode() {
-        String UserLogin = "SKR";
-        String UserPassword = "SKR";
-        if (Login.compareTo(UserLogin) == 0 && Password.compareTo(UserPassword) == 0) {
-            Authentication = "True";
-            Name = "ProninUsers";
-            return "UStorage.xhtml";
-        } else {
+        if (login.GetUserLogin(Login, Password) == null) {
             Authentication = "login or Password - invalid";
             return "404.xhtml";
+        } else {
+            if (login.GetUserLogin(Login, Password) == "Admin") {
+                Authentication = "True";
+                Name = login.getName();
+                return "Manage.xhtml";
+            } else {
+                Authentication = "True";
+                Name = login.getName();
+                return "UStorage.xhtml";
+            }
         }
     }
 

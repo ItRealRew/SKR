@@ -15,5 +15,11 @@ import javax.ejb.Local;
 @Local
 public interface LoginLocal {
 
-    public User GetUserLogin(String login, String Password);
+    public String getRole();
+
+    public int getId();
+
+    public String getName();
+
+    public String GetUserLogin(String login, String Password);
 }
