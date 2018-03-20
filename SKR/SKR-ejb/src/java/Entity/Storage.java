@@ -10,16 +10,11 @@ package Entity;
  * @author user
  */
 public class Storage {
+
     public int id;
     public String name;
-
-    public Storage(int id, String name, int idUser, String type) {
-        this.id = id;
-        this.name = name;
-        this.idUser = idUser;
-        this.type = type;
-    }
     public int idUser;
+    public String type;
 
     public int getId() {
         return id;
@@ -52,5 +47,5 @@ public class Storage {
     public void setType(String type) {
         this.type = type;
     }
-    public String type;
+
 }
