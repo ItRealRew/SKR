@@ -1,21 +1,138 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <h>Ну тут типа Главная страница</h><hr></hr>
-        <h:form>
-            <h:outputLabel value="Login "/> 
-            <h:inputText value="#{MainBean.login}"> 
-            </h:inputText><br></br>
-            <h:outputLabel value="Password "/> 
-            <h:inputText value="#{MainBean.password}"><br></br>
-            </h:inputText>
-            <h:commandButton  value="Войти" action="#{MainBean.InputSystem()}"/><br></br> 
-        </h:form>
-    </h:body>
-</html>
+<!DOCTYPE html>
+<html class="no-js" lang="ru-RU" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
 
+    <title>SKR/</title>
+    <!-- CSS -->
+    <!-- Modal -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <!-- modal -->
+</h:head>
+<h:body>
+
+    <header>
+        <div class="menu">
+
+            <div class="menu__icon">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="menu__links">
+                <a class="menu__links-item" href="/">Регистрация</a>
+                <a class="OpenModal">Вход</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+    </main>
+
+
+    <!-- modal -->
+    <div class="modal-overlay">
+        <div class="modal">
+
+            <a class="close-modal">
+      <svg viewBox="0 0 20 20">
+        <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+      </svg>
+    </a>
+            <!-- close modal -->
+            <!-- content -->
+            <div id="login">
+                <h:form style='form-login'>
+                    <span class="fontawesome-user"></span>
+                    <h:inputText style="user" a:placeholder="Login" value="#{MainBean.login}"></h:inputText>
+
+                    <span class="fontawesome-lock"></span>
+                    <h:inputText value="#{MainBean.password}" style="pass" a:placeholder="Password"></h:inputText>
+                    <h:commandButton value="Войти" action="#{MainBean.InputSystem()}" />
+
+                </h:form>
+            </div>
+            <!-- /content -->
+
+        </div>
+    </div>
+    <!-- overlay -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+
+    <script src="js/Modal.js"></script>
+    <script src="js/Menu.js"></script>
+    <!-- /modal -->
+</h:body>
+
+</html>
