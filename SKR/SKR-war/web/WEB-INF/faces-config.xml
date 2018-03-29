@@ -8,4 +8,22 @@
         <managed-bean-class>Beans.MainBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <navigation-rule>
+        <from-view-id>/UStorage.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>toUProduct</from-outcome>
+            <to-view-id>/UProduct.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>s</from-outcome>
+            <to-view-id>/UStorage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/UProduct.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/UProduct.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

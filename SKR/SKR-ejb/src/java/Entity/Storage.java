@@ -5,16 +5,27 @@
  */
 package Entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author user
  */
-public class Storage {
+public class Storage implements Serializable {
 
     public int id;
     public String name;
     public int idUser;
     public String type;
+    
+        public Storage(int id, String name, int idUser, String type) {
+        this.id = id;
+        this.name = name;
+        this.idUser = idUser;
+        this.type = type;
+    }
+
+
 
     public int getId() {
         return id;

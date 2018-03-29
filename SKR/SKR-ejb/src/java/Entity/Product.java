@@ -5,15 +5,24 @@
  */
 package Entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author user
  */
-public class Product {
+public class Product implements Serializable {
     public int id;
     public String NameProduct;
     public int lot;
     public String Typelot;
+    
+        public Product(int id, String NameProduct, int lot, String Typelot) {
+        this.id = id;
+        this.NameProduct = NameProduct;
+        this.lot = lot;
+        this.Typelot = Typelot;
+    }
 
     public int getId() {
         return id;
@@ -47,10 +56,4 @@ public class Product {
         this.Typelot = Typelot;
     }
 
-    public Product(int id, String NameProduct, int lot, String Typelot) {
-        this.id = id;
-        this.NameProduct = NameProduct;
-        this.lot = lot;
-        this.Typelot = Typelot;
-    }
 }

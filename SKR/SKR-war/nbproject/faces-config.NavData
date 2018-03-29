@@ -3,9 +3,11 @@
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
         <Node id="404.xhtml" x="650" y="150" zoom="true"/>
-        <Node id="UStorage.xhtml" x="400" y="150" zoom="true"/>
         <Node id="index.xhtml" x="150" y="150" zoom="true"/>
         <Node id="Manage.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="UStorage.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="UStorage (2).xhtml" x="150" y="450" zoom="true"/>
+        <Node id="UProduct.xhtml" x="400" y="300" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>
