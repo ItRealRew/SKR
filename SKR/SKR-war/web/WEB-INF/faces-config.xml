@@ -26,4 +26,19 @@
             <to-view-id>/UProduct.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>404</from-outcome>
+            <to-view-id>/404.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Manage</from-outcome>
+            <to-view-id>/Manage.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>UStorage</from-outcome>
+            <to-view-id>/UStorage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

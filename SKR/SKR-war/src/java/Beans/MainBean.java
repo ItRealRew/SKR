@@ -59,16 +59,16 @@ public class MainBean implements Serializable {
     public String InputSystem() {
         if (login.GetUserLogin(Login, Password) == null) {
             Authentication = "login or Password - invalid";
-            return "404.xhtml";
+            return "404";
         } else {
             if (login.GetUserLogin(Login, Password) == "Admin") {
                 Authentication = "True";
                 Name = login.getName();
-                return "Manage.xhtml";
+                return "Manage";
             } else {
                 Authentication = "True";
                 Name = login.getName();
-                return "UStorage.xhtml";
+                return "UStorage";
             }
         }
     }
