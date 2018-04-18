@@ -303,43 +303,57 @@ after {
     float: left;
     height: 100vh;
     line-height: 100vh;
-    background: url('/SKR-war/images/70.jpg') center center;
-    background-size: cover;
+    background: url('/SKR-war/images/fon.png');
+    background-repeat: repeat;
+
 }
 
 /** Error Style **/
-.ErrP{
-text-align: center;
+
+
+.ErrP {
+    margin:300 auto;
+    text-align: center;
 }
 
-i.Err{
+.ErrImg {
+    width: 50%;
+    height: auto;
+}
+
+i.Err {
     font-style: normal;
-    font-size: 200%; 
+    font-size: 200%;
     text-transform: uppercase;
 }
 
-a.Err{
-  display: inline-block;
-  color: white;
-  font-weight: 700;
-  text-decoration: none;
-  user-select: none;
-  padding: .5em 2em;
-  outline: none;
-  border: 2px solid;
-  border-radius: 1px;
-  transition: 0.2s;
-} 
-a.Err:hover { background: rgba(255,255,255,.2); }
-a.Err:active { background: white; }
+a.Err {
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+}
+
+a.Err:hover {
+    background: rgba(255, 255, 255, .2);
+}
+
+a.Err:active {
+    background: white;
+}
 
 /** Menu **/
 
 @import url('https://fonts.googleapis.com/css?family=Caveat');
-.enty
-{
+.enty {
     border-width: 0 1px 0 0;
-    border-style: solid; 
+    border-style: solid;
     padding-right: 10px;
 }
 
@@ -409,7 +423,7 @@ a.Err:active { background: white; }
     padding: 0 10px;
     text-transform: capitalize;
     text-decoration: none;
-     cursor: pointer;
+    cursor: pointer;
 }
 
 .menu__links-item:hover {
