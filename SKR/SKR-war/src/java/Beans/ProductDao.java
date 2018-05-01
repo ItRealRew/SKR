@@ -29,8 +29,10 @@ public class ProductDao {
 
     
     public String addProd() {
-        Product p = new Product(i,"P1",10,"type1");
+        Product p = new Product(1,"P1",10,"type1");
         products.add(p);
+        Product p2 = new Product(2,"dsfs",10000,"type2");
+        products.add(p2);
         return "success";
     }
 

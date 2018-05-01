@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
     <title>SKR/ТутЯкобыДолжноБытьНазваниеХранилища</title>
 
-    <link rel="stylesheet" href="css/allPage.css"></link>
+    <link rel="stylesheet" href="css/thispage.css"></link>
     <link rel="stylesheet" href="css/style.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
 </h:head>
@@ -30,7 +30,7 @@
 
     <div class="cont">
         <div class="fakeheadpage">
-            <div class="headpage"><i class="texheadtpage" title="Страница выбора нужного хранилища, создания нового, удаления или редактирования старого.">Название</i>/<i class="textheadlink" title="Нажмите, что бы добавить новое хранилище">Создать</i>
+            <div class="headpage"><i class="texheadtpage" title="Страница выбора нужного хранилища, создания нового, удаления или редактирования старого.">Название</i>
                 <div class="a-wrapper" data-text="">
                     <a href="">GO</a>
                 </div>
@@ -41,35 +41,22 @@
         </div>
         <div class="fakecontent">
             <div class="content">
+
                 <h:form>
-                    <h:commandLink action="#{ProductDao.addProd()}" value="Добавить продукт">
-                    </h:commandLink>
-
-                    <h:dataTable value="#{ProductDao.products}" var="var">
-                        <h:column>
-                            <f:facet name="header"> № </f:facet>
-                            #{var.id}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header"> Имя </f:facet>
-                            #{var.nameProduct}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header"> Количество </f:facet>
-                            #{var.lot}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header"> Тип </f:facet>
-                            #{var.typelot}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header"> Удалить </f:facet>
-                            <h:commandLink action="#{ProductDao.delProd()}" value="Удалить ">
-                            </h:commandLink>
-                        </h:column>
-
-                    </h:dataTable>
+                    <div id="line_block">
+                        <div class="add"><h:commandLink action="#{ProductDao.addProd()}" value="Добавить продукт">
+                        </h:commandLink></div>
+                    </div>
+                    <c:forEach var="item" items="#{ProductDao.products}">
+                        <div id="line_block">
+                            #{item.nameProduct} <br></br> 
+                        <img src="Uimg/def.png"></img>
+                    <br></br> #{item.lot}  #{item.typelot}<br></br> <br></br>
+                           <div class="add" style="float:left;"><h:commandLink action="#{ProductDao.delProd()}" value="Добавить">
+                            </h:commandLink></div><div class="del" style="float:right"><h:commandLink action="#{ProductDao.delProd()}" value="Забрать" >
+                            </h:commandLink></div>
+                        </div>
+                    </c:forEach>
 
                 </h:form>
                 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
