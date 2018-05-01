@@ -5,7 +5,7 @@
     <title>SKR/USTORAGE</title>
 
     <meta charset='UTF-8'></meta>
-    
+
     <link rel="stylesheet" href="css/allPage.css"></link>
     <link rel="stylesheet" href="css/style.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
@@ -31,17 +31,25 @@
         </div>
     </header>
 
-    <div class="fakeheadpage">
-        <div class="headpage"><i class="texheadtpage" title="Страница выбора нужного хранилища, создания нового, удаления или редактирования старого.">UStorage</i></div>
-    </div>
+    <div class="cont">
+        <div class="fakeheadpage">
+            <div class="headpage"><i class="texheadtpage" title="Страница выбора нужного хранилища, создания нового, удаления или редактирования старого.">UStorage</i>/<i class="textheadlink" title="Нажмите, что бы добавить новое хранилище">Создать</i>
+                 <div class="a-wrapper" data-text="">
+                   <a href="">GO</a>
+                </div>
+                <div class="input-wrapper" data-text="">
+                    <input type="text" placeholder="Search…"></input>
+                </div>
+            </div>
+        </div>
 
-    <div class="fakecontent">
-        <div class="content">
+        <div class="fakecontent">
+            <div class="content">
 
                 <h:form>
                     <h:dataTable value="#{StorageDao.storages}" var="var" class="forma">
                         <h:column>
-                            <f:facet name="header" > № </f:facet>
+                            <f:facet name="header"> № </f:facet>
                             #{var.id}
                         </h:column>
                         <h:column>
@@ -55,19 +63,19 @@
 
                         <h:column>
                             <f:facet name="header"> Выбрать </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK" >
+                            <h:commandLink action="#{StorageDao.select()}" value="OK">
                             </h:commandLink>
                         </h:column>
 
                         <h:column>
                             <f:facet name="header"> Удалить </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK" >
+                            <h:commandLink action="#{StorageDao.select()}" value="OK">
                             </h:commandLink>
                         </h:column>
 
                         <h:column>
                             <f:facet name="header"> Редактировать </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK" >
+                            <h:commandLink action="#{StorageDao.select()}" value="OK">
                             </h:commandLink>
                         </h:column>
 
@@ -77,11 +85,20 @@
 
                 </h:form>
 
-            <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
-            <script src="js/Menu.js"></script>
+                <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+                <script src="js/Menu.js"></script>
+            </div>
         </div>
     </div>
+    <div class="footer">
+        <div class="contentFoter">StockRoom.2017-
+            <script type="text/javascript">
+                var mdate = new Date();
+                document.write(mdate.getFullYear());
 
+            </script>
+        </div>
+    </div>
 </h:body>
 
 </html>
