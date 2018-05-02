@@ -5,9 +5,9 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 <managed-bean>
         <managed-bean-name>MainBean</managed-bean-name>
-        <managed-bean-class>Beans.MainBean</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
+        <managed-bean-class>BeansOld.MainBean</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
     <navigation-rule>
         <from-view-id>/UStorage.xhtml</from-view-id>
         <navigation-case>

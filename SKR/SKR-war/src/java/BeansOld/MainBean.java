@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Beans;
+package BeansOld;
 
 /**
  *
  * @author user
  */
-import Entity.User;
+import EntityOld.User;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.ejb.EJB;

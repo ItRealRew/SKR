@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Entity.User;
+import EntityOld.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateful;

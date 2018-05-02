@@ -14,8 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -30,14 +28,14 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author INFERUS
  */
 @Entity
-@Table(name = "User")
+@Table(name = "Stock")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
-    , @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id")
-    , @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")
-    , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")})
-public class User implements Serializable {
+    @NamedQuery(name = "Stock.findAll", query = "SELECT s FROM Stock s")
+    , @NamedQuery(name = "Stock.findById", query = "SELECT s FROM Stock s WHERE s.id = :id")
+    , @NamedQuery(name = "Stock.findByName", query = "SELECT s FROM Stock s WHERE s.name = :name")
+    , @NamedQuery(name = "Stock.findByPathimg", query = "SELECT s FROM Stock s WHERE s.pathimg = :pathimg")})
+public class Stock implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,25 +51,24 @@ public class User implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "Password")
-    private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
+    @Column(name = "Path_img")
+    private String pathimg;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStock")
     private Collection<StockUser> stockUserCollection;
-    @JoinColumn(name = "Role", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Role role;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStock")
+    private Collection<Thing> thingCollection;
 
-    public User() {
+    public Stock() {
     }
 
-    public User(Integer id) {
+    public Stock(Integer id) {
         this.id = id;
     }
 
-    public User(Integer id, String name, String password) {
+    public Stock(Integer id, String name, String pathimg) {
         this.id = id;
         this.name = name;
-        this.password = password;
+        this.pathimg = pathimg;
     }
 
     public Integer getId() {
@@ -90,12 +87,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPathimg() {
+        return pathimg;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPathimg(String pathimg) {
+        this.pathimg = pathimg;
     }
 
     @XmlTransient
@@ -107,12 +104,13 @@ public class User implements Serializable {
         this.stockUserCollection = stockUserCollection;
     }
 
-    public Role getRole() {
-        return role;
+    @XmlTransient
+    public Collection<Thing> getThingCollection() {
+        return thingCollection;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setThingCollection(Collection<Thing> thingCollection) {
+        this.thingCollection = thingCollection;
     }
 
     @Override
@@ -125,10 +123,10 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
+        if (!(object instanceof Stock)) {
             return false;
         }
-        User other = (User) object;
+        Stock other = (Stock) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -137,7 +135,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.User[ id=" + id + " ]";
+        return "Entity.Stock[ id=" + id + " ]";
     }
     
 }

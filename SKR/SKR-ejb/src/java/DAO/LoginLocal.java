@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Entity.User;
+import EntityOld.User;
 import javax.ejb.Local;
 
 /**

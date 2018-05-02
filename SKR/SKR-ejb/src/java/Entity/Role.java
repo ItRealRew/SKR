@@ -14,8 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -30,14 +28,13 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author INFERUS
  */
 @Entity
-@Table(name = "User")
+@Table(name = "Role")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
-    , @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id")
-    , @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")
-    , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")})
-public class User implements Serializable {
+    @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r")
+    , @NamedQuery(name = "Role.findById", query = "SELECT r FROM Role r WHERE r.id = :id")
+    , @NamedQuery(name = "Role.findByRolename", query = "SELECT r FROM Role r WHERE r.rolename = :rolename")})
+public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,30 +45,21 @@ public class User implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "Name")
-    private String name;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "Password")
-    private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
-    private Collection<StockUser> stockUserCollection;
-    @JoinColumn(name = "Role", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Role role;
+    @Column(name = "Role_name")
+    private String rolename;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
+    private Collection<User> userCollection;
 
-    public User() {
+    public Role() {
     }
 
-    public User(Integer id) {
+    public Role(Integer id) {
         this.id = id;
     }
 
-    public User(Integer id, String name, String password) {
+    public Role(Integer id, String rolename) {
         this.id = id;
-        this.name = name;
-        this.password = password;
+        this.rolename = rolename;
     }
 
     public Integer getId() {
@@ -82,37 +70,21 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRolename() {
+        return rolename;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
     }
 
     @XmlTransient
-    public Collection<StockUser> getStockUserCollection() {
-        return stockUserCollection;
+    public Collection<User> getUserCollection() {
+        return userCollection;
     }
 
-    public void setStockUserCollection(Collection<StockUser> stockUserCollection) {
-        this.stockUserCollection = stockUserCollection;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
+    public void setUserCollection(Collection<User> userCollection) {
+        this.userCollection = userCollection;
     }
 
     @Override
@@ -125,10 +97,10 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
+        if (!(object instanceof Role)) {
             return false;
         }
-        User other = (User) object;
+        Role other = (Role) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -137,7 +109,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.User[ id=" + id + " ]";
+        return "Entity.Role[ id=" + id + " ]";
     }
     
 }
