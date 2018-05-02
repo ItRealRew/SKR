@@ -37,18 +37,63 @@ and open the template in the editor.
     </header>
     <div class="cont">
         <div class="fakeheadpage">
-            <div class="headpage"><i class="texheadtpage" title="Поисковый запрос">Поисковый запрос</i>/<i class="textheadlink" title="Обратно к списку хранилищ">Обратно</i>
+            <div class="headpage"><i class="texheadtpage" title="Обратно к списку хранилищ">Обратно</i>/<i class="textheadlink" title="поисковый запрос">поисковый запрос</i>
             </div>
         </div>
-        <div class="fakecontent">
-            <div class="content">
-
+        
+        <div class="fakeheadpage1">
+            <div class="headpage">
+                <i class="secret">.</i>
                 <div class="a-wrapper" data-text="">
                     <a href="http://localhost:8080/SKR-war/faces/search.xhtml">GO</a>
                 </div>
                 <div class="input-wrapper" data-text="">
                     <input type="text" placeholder="Search…"></input>
                 </div>
+            </div>
+        </div>
+
+        <div class="fakecontent">
+            <div class="content">
+                <h:form>
+                    <h:dataTable value="#{StorageDao.storages}" var="var" class="forma">
+                        <h:column>
+                            <f:facet name="header"> № </f:facet>
+                            #{var.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"> Название </f:facet>
+                            #{var.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"> Описание </f:facet>
+                            #{var.type}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Выбрать </f:facet>
+                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            </h:commandLink>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Удалить </f:facet>
+                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            </h:commandLink>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"> Редактировать </f:facet>
+                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            </h:commandLink>
+                        </h:column>
+
+                    </h:dataTable>
+
+
+
+                </h:form>
+
 
                 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
                 <script src="js/Menu.js"></script>

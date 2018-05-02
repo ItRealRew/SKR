@@ -46,6 +46,10 @@ html {
     margin-top: 65px;
 }
 
+.fakeheadpage1 {
+    margin-top: 15px;
+}
+
 .headpage {
     color: #ffffff;
     margin: auto;
@@ -59,13 +63,17 @@ html {
     font-style: normal;
 }
 
+.secret {
+    color: rgba(0, 0, 0, 0.0);
+}
+
 .textheadlink {
     font-style: normal;
     font-size: 20px;
 }
 
 .fakecontent {
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 .content {
@@ -198,8 +206,8 @@ td {
 }
 
 
-.add :link,
-.add :visited {
+.content a:link,
+.content a:visited {
     background-color: #ffffff;
     color: black;
     padding: 5px 15px;
@@ -209,25 +217,9 @@ td {
 }
 
 
-.add :hover,
-.add :active {
+.content a:hover,
+.content a:active {
     background-color: #71bc78;
-}
-
-.del :link,
-.del :visited {
-    background-color: #ffffff;
-    color: black;
-    padding: 5px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-
-.del :hover,
-.del :active {
-    background-color: #e66761;
 }
 
 .footer {
@@ -250,7 +242,7 @@ td {
 
 
 .input-wrapper {
-    width: 80%;
+    width: 90%;
     float: right;
 }
 
@@ -292,7 +284,7 @@ td {
 }
 
 input {
-    color: #ddd;
+    color: #ffffff;
     border: none;
     padding: 0;
     border-radius: 0;
@@ -305,17 +297,3 @@ input {
     background-color: transparent;
 }
 
-#line_block {
-    width: 250px;
-    height: 250px;
-    background: rgba(0, 0, 0, 0.70);
-    float: left;
-    margin: 0 15px 15px 0;
-    text-align: center;
-    padding: 10px;
-}
-
-#line_block img {
-    max-width: 200px;
-    height: auto;
-}
