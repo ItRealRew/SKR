@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
-<h:head>
-    <title>SKR/ТутЯкобыДолжноБытьНазваниеХранилища</title>
 
-    <link rel="stylesheet" href="css/thispage.css"></link>
+<head>
+    <title>SKR/ТЕКСТЗАПРОСА</title>
+
+    <link rel="stylesheet" href="css/search.css"></link>
     <link rel="stylesheet" href="css/style.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
-</h:head>
-<h:body>
+</head>
+
+<body>
     <header class="header">
         <img src="images/logo.png" class="logo"></img>
         <div class="menu">
@@ -27,43 +35,27 @@
             </div>
         </div>
     </header>
-
     <div class="cont">
         <div class="fakeheadpage">
-            <div class="headpage"><i class="texheadtpage" title="Это страница НАЗВАНИЕ - хранилища, тут вы можете добавлять и забирать товары">Название</i>/<i class="textheadlink" title="Нажмите, что бы попасть обратно на страницу списка со всеми хранилищами">Обратно</i>
+            <div class="headpage"><i class="texheadtpage" title="Поисковый запрос">Поисковый запрос</i>/<i class="textheadlink" title="Обратно к списку хранилищ">Обратно</i>
+            </div>
+        </div>
+        <div class="fakecontent">
+            <div class="content">
+
                 <div class="a-wrapper" data-text="">
                     <a href="http://localhost:8080/SKR-war/faces/search.xhtml">GO</a>
                 </div>
                 <div class="input-wrapper" data-text="">
                     <input type="text" placeholder="Search…"></input>
                 </div>
-            </div>
-        </div>
-        <div class="fakecontent">
-            <div class="content">
 
-                <h:form>
-                    <div id="line_block">
-                        <div class="add"><h:commandLink action="#{ProductDao.addProd()}" value="Добавить продукт">
-                        </h:commandLink></div>
-                    </div>
-                    <c:forEach var="item" items="#{ProductDao.products}">
-                        <div id="line_block">
-                            #{item.nameProduct} <br></br> 
-                        <img src="Uimg/def.png"></img>
-                    <br></br> #{item.lot}  #{item.typelot}<br></br> <br></br>
-                           <div class="add" style="float:left;"><h:commandLink action="#{ProductDao.delProd()}" value="Добавить">
-                            </h:commandLink></div><div class="del" style="float:right"><h:commandLink action="#{ProductDao.delProd()}" value="Забрать" >
-                            </h:commandLink></div>
-                        </div>
-                    </c:forEach>
-
-                </h:form>
                 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
                 <script src="js/Menu.js"></script>
             </div>
         </div>
     </div>
+
     <div class="footer">
         <div class="contentFoter">StockRoom.2017-
             <script type="text/javascript">
@@ -73,6 +65,6 @@
             </script>
         </div>
     </div>
-</h:body>
+</body>
 
 </html>

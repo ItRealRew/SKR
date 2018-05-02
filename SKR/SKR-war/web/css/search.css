@@ -3,6 +3,16 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
+/* 
+    Created on : 02.05.2018, 10:33:24
+    Author     : user
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
 
 /* 
     Created on : 01.05.2018, 12:14:44
@@ -60,7 +70,7 @@ html {
 
 .content {
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.0);
+    background: rgba(0, 0, 0, 0.70);
     padding: 5px;
     max-width: 1280px;
     margin: auto;
@@ -240,7 +250,7 @@ td {
 
 
 .input-wrapper {
-    width: 240px;
+    width: 80%;
     float: right;
 }
 
@@ -267,7 +277,7 @@ td {
 
 .input-wrapper::after {
     content: attr(data-text);
-    font-size: 15px;
+    font-size: 25px;
     line-height: 0;
     height: 0;
     max-width: 100%;
@@ -287,9 +297,9 @@ input {
     padding: 0;
     border-radius: 0;
     outline: none;
-    width: 240px;
+    width: 90%;
     min-width: 100%;
-    font-size: 15px;
+    font-size: 25px;
     line-height: 3em;
     font-family: Roboto, Arial, sans-serif;
     background-color: transparent;
