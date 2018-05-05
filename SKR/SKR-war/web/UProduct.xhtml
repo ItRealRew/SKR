@@ -30,7 +30,7 @@
 
     <div class="cont">
         <div class="fakeheadpage">
-            <div class="headpage"><i class="texheadtpage" title="Это страница НАЗВАНИЕ - хранилища, тут вы можете добавлять и забирать товары">Название</i>/<i class="textheadlink" title="Нажмите, что бы попасть обратно на страницу списка со всеми хранилищами">Обратно</i>
+            <div class="headpage"><i class="texheadtpage" title="Это страница НАЗВАНИЕ - хранилища, тут вы можете добавлять и забирать товары">Название</i>/<i class="textheadlink" title="Нажмите, что бы попасть обратно на страницу списка со всеми хранилищами"><a href="/SKR-war/faces/UStorage.xhtml">Обратно</a></i>
                 <div class="a-wrapper" data-text="">
                     <a href="http://localhost:8080/SKR-war/faces/search.xhtml">GO</a>
                 </div>
@@ -44,17 +44,34 @@
 
                 <h:form>
                     <div id="line_block">
-                        <div class="add"><h:commandLink action="#{ProductDao.addProd()}" value="Добавить продукт">
-                        </h:commandLink></div>
+                        <div class="add">
+                        <label for="name">Название:</label>
+                        <h:inputText></h:inputText>
+                        <label for="count">Количество:</label>
+                        <h:inputText></h:inputText>
+                        <label for="count">Измерения:</label>
+                        <h:inputText></h:inputText>
+                        <label for="count">Дата добавления:</label>
+                        <h:inputText></h:inputText>
+                        <label for="count">Изображение:</label>
+                        <h:inputText></h:inputText>
+                            <h:commandLink action="#{ProductDao.addProd()}" value="Добавить продукт">
+                            </h:commandLink>
+                        </div>
                     </div>
                     <c:forEach var="item" items="#{ProductDao.products}">
                         <div id="line_block">
-                            #{item.nameProduct} <br></br> 
-                        <img src="Uimg/def.png"></img>
-                    <br></br> #{item.lot}  #{item.typelot}<br></br> <br></br>
-                           <div class="add" style="float:left;"><h:commandLink action="#{ProductDao.delProd()}" value="Добавить">
-                            </h:commandLink></div><div class="del" style="float:right"><h:commandLink action="#{ProductDao.delProd()}" value="Забрать" >
-                            </h:commandLink></div>
+                            #{item.nameProduct} <br></br>
+                            <img src="Uimg/def.png"></img>
+                            <br></br> #{item.lot} #{item.typelot}<br></br> <br></br>
+                            <div class="add" style="float:left;">
+                                <h:commandLink action="#{ProductDao.delProd()}" value="Добавить">
+                                </h:commandLink>
+                            </div>
+                            <div class="del" style="float:right">
+                                <h:commandLink action="#{ProductDao.delProd()}" value="Забрать">
+                                </h:commandLink>
+                            </div>
                         </div>
                     </c:forEach>
 

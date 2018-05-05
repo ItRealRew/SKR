@@ -62,28 +62,28 @@ and open the template in the editor.
                             #{var.id}
                         </h:column>
                         <h:column>
-                            <f:facet name="header"> Название </f:facet>
+                            <f:facet name="header"> Предмет</f:facet>
                             #{var.name}
                         </h:column>
                         <h:column>
-                            <f:facet name="header"> Описание </f:facet>
+                            <f:facet name="header"> Хранилище </f:facet>
                             #{var.type}
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header"> Выбрать </f:facet>
+                            <f:facet name="header"> Выбрать</f:facet>
                             <h:commandLink action="#{StorageDao.select()}" value="OK">
                             </h:commandLink>
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header"> Удалить </f:facet>
+                            <f:facet name="header"> Добавить </f:facet>
                             <h:commandLink action="#{StorageDao.select()}" value="OK">
                             </h:commandLink>
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header"> Редактировать </f:facet>
+                            <f:facet name="header"> Забрать </f:facet>
                             <h:commandLink action="#{StorageDao.select()}" value="OK">
                             </h:commandLink>
                         </h:column>
