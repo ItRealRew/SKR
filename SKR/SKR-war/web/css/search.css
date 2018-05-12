@@ -174,16 +174,16 @@ td {
         content: "Name";
     }
     td:nth-of-type(3):before {
-        content: "Description";
+        content: "Stock";
     }
     td:nth-of-type(4):before {
         content: "Select";
     }
     td:nth-of-type(5):before {
-        content: "Edit";
+        content: "Add";
     }
     td:nth-of-type(6):before {
-        content: "Delete";
+        content: "Take";
     }
 }
 
