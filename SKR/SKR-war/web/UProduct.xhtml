@@ -44,7 +44,7 @@
 
                 <h:form>
                     <div id="line_block">
-                        <div class="add">
+                        <div class="InAdd">
                         <label for="name">Название:</label>
                         <h:inputText></h:inputText>
                         <label for="count">Количество:</label>
@@ -55,6 +55,8 @@
                         <h:inputText></h:inputText>
                         <label for="count">Изображение:</label>
                         <h:inputText></h:inputText>
+                            </div>
+                        <div class="add">
                             <h:commandLink action="#{ProductDao.addProd()}" value="Добавить продукт">
                             </h:commandLink>
                         </div>

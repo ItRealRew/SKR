@@ -43,6 +43,14 @@ html {
     font-size: 20px;
 }
 
+.textheadlink :link,
+.textheadlink :visited,
+.textheadlink :active,
+.textheadlink :hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .fakecontent {
     margin-top: 15px;
 }
@@ -94,7 +102,7 @@ td {
 @media only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px) {
 
-    
+
     /* Force table to not be like tables anymore */
     table,
     thead,

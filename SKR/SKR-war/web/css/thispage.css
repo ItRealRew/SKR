@@ -54,6 +54,15 @@ html {
     font-size: 20px;
 }
 
+.textheadlink :link,
+.textheadlink :visited,
+.textheadlink :active,
+.textheadlink :hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
 .fakecontent {
     margin-top: 15px;
 }
@@ -310,7 +319,7 @@ input {
     height: auto;
 }
 
-.add input {
+.InAdd input {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #ddd;

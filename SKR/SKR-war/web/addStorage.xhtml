@@ -6,21 +6,32 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-        <h:form>
-        <label for="name">Название:</label>
-                        <h:inputText></h:inputText>
-                                <label for="name">Описание:</label>
-                        <h:inputText></h:inputText>
-                                <label for="name">Тип:</label>
-                        <h:inputText></h:inputText>
-                                                        <label for="name">папка:</label>
-                        <h:inputText></h:inputText>
-                        </h:form>
-    </body>
+
+<head>
+    <title>SKR/NEW_STORAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/thispage.css"></link>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+</head>
+
+<body>
+    <div>TODO write content</div>
+    <h:form>
+        <div class="InAdd">
+            <label for="name">Название:</label>
+            <h:inputText></h:inputText>
+            <label for="name">Описание:</label>
+            <h:inputText></h:inputText>
+            <label for="name">Тип:</label>
+            <h:inputText></h:inputText>
+            <label for="name">папка:</label>
+            <h:inputText></h:inputText>
+            </div>
+       <div class="add"> <h:commandLink action="#{ProductDao.addProd()}" value="ДОБАВИТЬ ХРАНИЛИЩЕ">
+                            </h:commandLink> </div>
+    </h:form>
+</body>
+
 </html>

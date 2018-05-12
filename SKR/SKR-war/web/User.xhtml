@@ -6,11 +6,64 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <head>
-        <title>SKR/<h:outputText value="#{MainBean.name}" /></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+<head>
+    <title>SKR/
+        <h:outputText value="#{MainBean.name}" />
+    </title>
+    
+    <link rel="stylesheet" href="css/user.css"></link>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+</head>
+
+  <h:body>
+    <header class="header">
+        <img src="images/logo.png" class="logo"></img>
+        <div class="menu">
+
+            <div class="menu__icon">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="menu__links">
+                <a class=" menu__links-item enty">
+                    <h:outputText value="#{MainBean.name}" />
+                </a>
+                <a class="menu__links-item">Выход</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="cont">
+        <div class="fakeheadpage">
+            <div class="headpage"><i class="texheadtpage" title="Страница вашего профиля"><h:outputText value="#{MainBean.name}" /></i>
+            </div>
+        </div>
+
+        <div class="fakecontent">
+            <div class="content">
+
+                <h:form>
+                    
+                  </h:form>
+
+                <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+                <script src="js/Menu.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="contentFoter">StockRoom.2017-
+            <script type="text/javascript">
+                var mdate = new Date();
+                document.write(mdate.getFullYear());
+
+            </script>
+        </div>
+    </div>
+</h:body>
 </html>

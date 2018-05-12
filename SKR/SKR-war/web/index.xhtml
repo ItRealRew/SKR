@@ -13,7 +13,7 @@
 <h:body>
 
     <header class="header">
-            <img src="images/logo.png" class="logo"></img>
+        <img src="images/logo.png" class="logo"></img>
         <div class="menu">
 
             <div class="menu__icon">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="menu__links">
-                <a class=" menu__links-item enty"><img src="/SKR-war/images/u369_states.png"></img></a>
+                <a class="OpenModal menu__links-item enty"><img src="/SKR-war/images/u369_states.png"></img></a>
                 <a class="OpenModal menu__links-item"><img src="/SKR-war/images/u371_states.png"></img></a>
             </div>
         </div>
@@ -32,11 +32,11 @@
 
     <main>
         <div class="IntroSection">
-        INTRO</div>
+            INTRO</div>
         <div class="NewsSection">
-        NEWS</div>
+            NEWS</div>
         <div class="AboutSection">
-        About</div>
+            About</div>
     </main>
 
 
@@ -51,16 +51,22 @@
     </a>
             <!-- close modal -->
             <!-- content -->
-            <div id="login">
-                <h:form style='form-login'>
-                    <span class="fontawesome-user"></span>
-                    <h:inputText style="user" a:placeholder="Login" value="#{MainBean.login}"></h:inputText>
-
-                    <span class="fontawesome-lock"></span>
-                    <h:inputText value="#{MainBean.password}" style="pass" a:placeholder="Password"></h:inputText>
-                    <h:commandButton value="Войти" action="#{MainBean.InputSystem()}" />
-
-                </h:form>
+            <div class="login-page">
+                <div class="form">
+                    <form class="register-form">
+                        <input type="text" placeholder="name" />
+                        <input type="password" placeholder="password" />
+                        <input type="text" placeholder="email address" />
+                        <button>create</button>
+                        <p class="message">Already registered? <a href="#">Sign In</a></p>
+                    </form>
+                    <h:form style='login-form'>
+                        <h:inputText type="text" a:placeholder="LOGIN" a:value="#{MainBean.login}"></h:inputText>
+                        <h:inputText value="#{MainBean.password}" a:placeholder="PASSWORD"></h:inputText>
+                        <h:commandButton value="Войти" action="#{MainBean.InputSystem()}" style="batonOK" />
+                        <p class="message">Not registered? <a href="#">Create an account</a></p>
+                    </h:form>
+                </div>
             </div>
             <!-- /content -->
 
@@ -72,6 +78,7 @@
 
     <script src="js/Modal.js"></script>
     <script src="js/Menu.js"></script>
+    <script src="js/loginform.js"></script>
     <!-- /modal -->
 </h:body>
 

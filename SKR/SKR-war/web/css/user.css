@@ -8,3 +8,1114 @@ and open the template in the editor.
     Author     : user
 */
 
+
+@charset "utf-8";
+
+body {
+    background-color: #5a4651;
+    height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.fakeheadpage {
+    margin-top: 65px;
+}
+
+.headpage {
+    color: #ffffff;
+    margin: auto;
+    padding: 5px;
+    font-size: 30px;
+    max-width: 1280px;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.texheadtpage {
+    font-style: normal;
+}
+
+.textheadlink {
+    font-style: normal;
+    font-size: 20px;
+}
+
+.fakecontent {
+    margin-top: 15px;
+}
+
+.content {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.70);
+    padding: 5px;
+    max-width: 1280px;
+    margin: auto;
+}
+
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    font-weight: normal;
+    color: #ffffff;
+    border-bottom: 2px solid #fffafa;
+    padding: 10px 8px;
+}
+
+td {
+    color: #669;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    /*
+		Label the data
+		*/
+    td:nth-of-type(1):before {
+        content: "ID";
+    }
+    td:nth-of-type(2):before {
+        content: "Name";
+    }
+    td:nth-of-type(3):before {
+        content: "Description";
+    }
+    td:nth-of-type(4):before {
+        content: "Select";
+    }
+    td:nth-of-type(5):before {
+        content: "Edit";
+    }
+    td:nth-of-type(6):before {
+        content: "Delete";
+    }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        width: 320px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        width: 495px;
+    }
+}
+
+
+.content a:link,
+.content a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.content a:hover,
+.content a:active {
+    background-color: #71bc78;
+}
+
+.footer {
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.cont {
+    padding-bottom: 55px;
+}
+
+.contentFoter {
+    padding-top: 7px;
+    padding-left: 40px;
+    color: #ffffff;
+}
+
+
+.input-wrapper {
+    width: 240px;
+    float: right;
+}
+
+.a-wrapper {
+    float: right;
+}
+
+
+.a-wrapper a:link,
+.a-wrapper a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.a-wrapper a:hover,
+.a-wrapper a:active {
+    background-color: #71bc78;
+}
+
+.input-wrapper::after {
+    content: attr(data-text);
+    font-size: 15px;
+    line-height: 0;
+    height: 0;
+    max-width: 100%;/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+/* 
+    Created on : 18.04.2018, 18:50:58
+    Author     : user
+*/
+
+@charset "utf-8";
+
+body {
+    background-color: #5a4651;
+    height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.fakeheadpage {
+    margin-top: 65px;
+}
+
+.headpage {
+    color: #ffffff;
+    margin: auto;
+    padding: 5px;
+    font-size: 30px;
+    max-width: 1280px;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.texheadtpage {
+    font-style: normal;
+}
+
+.textheadlink {
+    font-style: normal;
+    font-size: 20px;
+}
+
+.fakecontent {
+    margin-top: 15px;
+}
+
+.content {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.70);
+    padding: 5px;
+    max-width: 1280px;
+    margin: auto;
+}
+
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    font-weight: normal;
+    color: #ffffff;
+    border-bottom: 2px solid #fffafa;
+    padding: 10px 8px;
+}
+
+td {
+    color: #669;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    /*
+		Label the data
+		*/
+    td:nth-of-type(1):before {
+        content: "User";
+    }
+    td:nth-of-type(2):before {
+        content: "Stock";
+    }
+    td:nth-of-type(3):before {
+        content: "Description";
+    }
+    td:nth-of-type(4):before {
+        content: "Status";
+    }
+    td:nth-of-type(5):before {
+        content: "Select";
+    }
+    td:nth-of-type(6):before {
+        content: "Action";
+    }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        width: 320px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        width: 495px;
+    }
+}
+
+
+.content a:link,
+.content a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.content a:hover,
+.content a:active {
+    background-color: #71bc78;
+}
+
+.footer {
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.cont {
+    padding-bottom: 55px;
+}
+
+.contentFoter {
+    padding-top: 7px;
+    padding-left: 40px;
+    color: #ffffff;
+}
+
+
+.input-wrapper {
+    width: 240px;
+    float: right;
+}
+
+.a-wrapper {
+    float: right;
+}
+
+
+.a-wrapper a:link,
+.a-wrapper a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.a-wrapper a:hover,
+.a-wrapper a:active {
+    background-color: #71bc78;
+}
+
+.input-wrapper::after {
+    content: attr(data-text);
+    font-size: 15px;
+    line-height: 0;
+    height: 0;
+    max-width: 100%;
+    font-family: Roboto, Arial, sans-serif;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden;
+    user-select: none;
+    color: transparent;
+}
+
+input {
+    color: #ddd;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: 240px;
+    min-width: 100%;
+    font-size: 15px;
+    line-height: 3em;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: transparent;
+}
+
+    font-family: Roboto, Arial, sans-serif;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden;
+    user-select: none;
+    color: transparent;
+}
+
+input {
+    color: #ddd;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: 240px;
+    min-width: 100%;
+    font-size: 15px;
+    line-height: 3em;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: transparent;
+}
+
+
+.act a:link,
+.act a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-style: normal;
+}
+
+
+.act a:hover,
+.act a:active {
+    background-color: #fff44f;
+    font-style: normal;
+}
+
+.act {
+    font-style: normal;
+}/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12.05.2018, 10:25:32
+    Author     : user
+*/
+
+
+@charset "utf-8";
+
+body {
+    background-color: #5a4651;
+    height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.fakeheadpage {
+    margin-top: 65px;
+}
+
+.headpage {
+    color: #ffffff;
+    margin: auto;
+    padding: 5px;
+    font-size: 30px;
+    max-width: 1280px;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.texheadtpage {
+    font-style: normal;
+}
+
+.textheadlink {
+    font-style: normal;
+    font-size: 20px;
+}
+
+.fakecontent {
+    margin-top: 15px;
+}
+
+.content {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.70);
+    padding: 5px;
+    max-width: 1280px;
+    margin: auto;
+}
+
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    font-weight: normal;
+    color: #ffffff;
+    border-bottom: 2px solid #fffafa;
+    padding: 10px 8px;
+}
+
+td {
+    color: #669;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    /*
+		Label the data
+		*/
+    td:nth-of-type(1):before {
+        content: "ID";
+    }
+    td:nth-of-type(2):before {
+        content: "Name";
+    }
+    td:nth-of-type(3):before {
+        content: "Description";
+    }
+    td:nth-of-type(4):before {
+        content: "Select";
+    }
+    td:nth-of-type(5):before {
+        content: "Edit";
+    }
+    td:nth-of-type(6):before {
+        content: "Delete";
+    }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        width: 320px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        width: 495px;
+    }
+}
+
+
+.content a:link,
+.content a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.content a:hover,
+.content a:active {
+    background-color: #71bc78;
+}
+
+.footer {
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.cont {
+    padding-bottom: 55px;
+}
+
+.contentFoter {
+    padding-top: 7px;
+    padding-left: 40px;
+    color: #ffffff;
+}
+
+
+.input-wrapper {
+    width: 240px;
+    float: right;
+}
+
+.a-wrapper {
+    float: right;
+}
+
+
+.a-wrapper a:link,
+.a-wrapper a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.a-wrapper a:hover,
+.a-wrapper a:active {
+    background-color: #71bc78;
+}
+
+.input-wrapper::after {
+    content: attr(data-text);
+    font-size: 15px;
+    line-height: 0;
+    height: 0;
+    max-width: 100%;/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+/* 
+    Created on : 18.04.2018, 18:50:58
+    Author     : user
+*/
+
+@charset "utf-8";
+
+body {
+    background-color: #5a4651;
+    height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.fakeheadpage {
+    margin-top: 65px;
+}
+
+.headpage {
+    color: #ffffff;
+    margin: auto;
+    padding: 5px;
+    font-size: 30px;
+    max-width: 1280px;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.texheadtpage {
+    font-style: normal;
+}
+
+.textheadlink {
+    font-style: normal;
+    font-size: 20px;
+}
+
+.fakecontent {
+    margin-top: 15px;
+}
+
+.content {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.70);
+    padding: 5px;
+    max-width: 1280px;
+    margin: auto;
+}
+
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    font-weight: normal;
+    color: #ffffff;
+    border-bottom: 2px solid #fffafa;
+    padding: 10px 8px;
+}
+
+td {
+    color: #669;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+    padding: 9px 8px;
+    transition: .3s linear;
+}
+
+/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    /*
+		Label the data
+		*/
+    td:nth-of-type(1):before {
+        content: "User";
+    }
+    td:nth-of-type(2):before {
+        content: "Stock";
+    }
+    td:nth-of-type(3):before {
+        content: "Description";
+    }
+    td:nth-of-type(4):before {
+        content: "Status";
+    }
+    td:nth-of-type(5):before {
+        content: "Select";
+    }
+    td:nth-of-type(6):before {
+        content: "Action";
+    }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    body {
+        padding: 0;
+        margin: 0;
+        width: 320px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        width: 495px;
+    }
+}
+
+
+.content a:link,
+.content a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.content a:hover,
+.content a:active {
+    background-color: #71bc78;
+}
+
+.footer {
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.cont {
+    padding-bottom: 55px;
+}
+
+.contentFoter {
+    padding-top: 7px;
+    padding-left: 40px;
+    color: #ffffff;
+}
+
+
+.input-wrapper {
+    width: 240px;
+    float: right;
+}
+
+.a-wrapper {
+    float: right;
+}
+
+
+.a-wrapper a:link,
+.a-wrapper a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.a-wrapper a:hover,
+.a-wrapper a:active {
+    background-color: #71bc78;
+}
+
+.input-wrapper::after {
+    content: attr(data-text);
+    font-size: 15px;
+    line-height: 0;
+    height: 0;
+    max-width: 100%;
+    font-family: Roboto, Arial, sans-serif;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden;
+    user-select: none;
+    color: transparent;
+}
+
+input {
+    color: #ddd;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: 240px;
+    min-width: 100%;
+    font-size: 15px;
+    line-height: 3em;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: transparent;
+}
+
+    font-family: Roboto, Arial, sans-serif;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden;
+    user-select: none;
+    color: transparent;
+}
+
+input {
+    color: #ddd;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    width: 240px;
+    min-width: 100%;
+    font-size: 15px;
+    line-height: 3em;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: transparent;
+}
+
+
+.act a:link,
+.act a:visited {
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-style: normal;
+}
+
+
+.act a:hover,
+.act a:active {
+    background-color: #fff44f;
+    font-style: normal;
+}
+
+.act {
+    font-style: normal;
+}
