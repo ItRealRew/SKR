@@ -61,9 +61,9 @@
                         <p class="message">Already registered? <a href="#">Sign In</a></p>
                     </form>
                     <h:form style='login-form'>
-                        <h:inputText type="text" a:placeholder="LOGIN" a:value="#{MainBean.login}"></h:inputText>
-                        <h:inputText value="#{MainBean.password}" a:placeholder="PASSWORD"></h:inputText>
-                        <h:commandButton value="Войти" action="#{MainBean.InputSystem()}" style="batonOK" />
+                        <h:inputText a:placeholder="LOGIN" a:value="#{loginBean.name}"></h:inputText>
+                        <h:inputText value="#{loginBean.password}" a:placeholder="PASSWORD"></h:inputText>
+                        <h:commandButton value="Войти" action="#{loginBean.InputSystem()}" style="batonOK" />
                         <p class="message">Not registered? <a href="#">Create an account</a></p>
                     </h:form>
                 </div>

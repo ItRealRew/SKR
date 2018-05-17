@@ -15,8 +15,8 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 
 public class MainBean implements Serializable {
-
-    @EJB
+}
+   /* @EJB
     private DAO.LoginLocal login;
 
     private String Login;
@@ -73,4 +73,4 @@ public class MainBean implements Serializable {
         }
     }
 
-}
+}*/

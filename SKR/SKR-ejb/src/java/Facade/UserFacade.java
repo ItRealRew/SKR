@@ -29,4 +29,12 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
         super(User.class);
     }
     
+     public Boolean findUserBool(String name, String password){
+     
+         
+         
+         return true;
+     }
+
+    
 }
