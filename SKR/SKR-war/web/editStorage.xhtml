@@ -24,7 +24,7 @@ and open the template in the editor.
                 <h:inputText value="#{storagesBean.name}"></h:inputText>
             </div>
             <div class="add"> 
-                <h:commandLink action="#{storagesBean.addStorage(loginBean.user.id)}" value="ДОБАВИТЬ ХРАНИЛИЩЕ"></h:commandLink>
+                <h:commandLink action="#{storagesBean.editStorage()}" value="ДОБАВИТЬ ХРАНИЛИЩЕ"></h:commandLink>
             </div>
         </h:form>
     </body>

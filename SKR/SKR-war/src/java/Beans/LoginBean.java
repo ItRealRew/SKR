@@ -26,10 +26,14 @@ public class LoginBean implements Serializable {
 
     @EJB
     UserFacadeLocal userFacadeLocal;
+    @EJB
+    RoleFacadeLocal role;
 
-    User user;
-    private String name = "11";
+    private User user;
+    private String name;
     private String password;
+    private String email;
+    private String error;
 
     public String getName() {
         return name;
@@ -59,39 +63,70 @@ public class LoginBean implements Serializable {
         this.user = user;
     }
 
-    public String create() {
-        /* long i = drivingLicenseCategoryFacadeLocal.count()+1;
-      licenseCategory.setId(i);
-      drivingLicenseCategoryFacadeLocal.create(licenseCategory);*/
-
-        return "categoryList";
-    }
-
     public String InputSystem() {
-        if (userFacadeLocal.findUserBool(name, password)) {
-            return "UStorage";
-        }
-        else {return "Manage";}
-    }
-        /*    
-        if (login.GetUserLogin(Login, Password) == null) {
-            Authentication = "login or Password - invalid";
-            return "404";
-        } else {
-            if (login.GetUserLogin(Login, Password) == "Admin") {
-                Authentication = "True";
-                Name = login.getName();
-                return "Manage";
-            } else {
-                Authentication = "True";
-                Name = login.getName();
-                return "UStorage";
-            }*/
-    
 
+        setUser(userFacadeLocal.registered(name));
+        if (getUser() != null) {
+            String goTo = userFacadeLocal.findUserRole(name, password);
+            return goTo;
+
+        } else {
+            setError("Пользователя с такими параметрами не существует");
+            return "404";
+        }
+
+    }
+
+    public String toRegister() {
+
+        if (!userFacadeLocal.registered(name, email)) {
+
+            user.setName(name);
+            user.setPassword(password);
+            user.setEmail(email);
+            user.setRole(role.defaultRole());
+
+            userFacadeLocal.create(user);
+
+            return InputSystem();
+        } else {
+            setError("Такой логин/email уже зарегистрирован");
+            return "404";
+        }
+    }
 
     public Collection<User> getAll() {
         return userFacadeLocal.findAll();
     }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the error
+     */
+    public String getError() {
+        return error;
+    }
+
+    /**
+     * @param error the error to set
+     */
+    public void setError(String error) {
+        this.error = error;
+    }
+
+
 
 }

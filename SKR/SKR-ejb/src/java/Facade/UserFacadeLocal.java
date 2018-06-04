@@ -23,8 +23,12 @@ public interface UserFacadeLocal {
     void remove(User user);
 
     User find(Object id);
-    
-    Boolean findUserBool(String name, String password);
+
+    Boolean registered(String name, String email);
+
+    User registered(String name);
+
+    String findUserRole(String name, String password);
 
     List<User> findAll();
 
@@ -32,4 +36,6 @@ public interface UserFacadeLocal {
 
     int count();
     
+    User findById(int id);
+
 }

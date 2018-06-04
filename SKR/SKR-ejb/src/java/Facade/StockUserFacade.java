@@ -5,7 +5,11 @@
  */
 package Facade;
 
+import Entity.Stock;
 import Entity.StockUser;
+import Entity.User;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +32,20 @@ public class StockUserFacade extends AbstractFacade<StockUser> implements StockU
     public StockUserFacade() {
         super(StockUser.class);
     }
-    
+
+    public ArrayList<Stock> findStockUser(User User) {
+
+        List<StockUser> l = em.createNamedQuery("StockUser.findUserStock").setParameter("idUser", User).getResultList();
+
+         ArrayList list = new ArrayList();
+
+        for (int i=0; i<l.size() ;i++){
+            list.add(l.get(i).getIdStock());
+        }
+        
+
+        return list;
+
+    }
+
 }

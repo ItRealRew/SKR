@@ -21,6 +21,8 @@ public interface RoleFacadeLocal {
     void edit(Role role);
 
     void remove(Role role);
+    
+    Role defaultRole();
 
     Role find(Object id);
 

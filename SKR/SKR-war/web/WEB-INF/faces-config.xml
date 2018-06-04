@@ -15,8 +15,12 @@
             <to-view-id>/UProduct.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>s</from-outcome>
+            <from-outcome>success</from-outcome>
             <to-view-id>/UStorage.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/editStorage.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -38,6 +42,20 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>UStorage</from-outcome>
+            <to-view-id>/UStorage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/addStorage.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/UStorage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/editStorage.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
             <to-view-id>/UStorage.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>

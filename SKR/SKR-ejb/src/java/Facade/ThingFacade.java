@@ -5,7 +5,10 @@
  */
 package Facade;
 
+import Entity.Stock;
 import Entity.Thing;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +30,17 @@ public class ThingFacade extends AbstractFacade<Thing> implements ThingFacadeLoc
 
     public ThingFacade() {
         super(Thing.class);
+    }
+    
+        public ArrayList<Thing> findByStorage (Stock stock) {
+        List list = em.createNamedQuery("Thing.findByStorage").setParameter("idStock", stock).getResultList();
+        
+         ArrayList array = new ArrayList();
+
+        for (int i=0; i<list.size() ;i++){
+            array.add(list.get(i));
+        }
+        return array;
     }
     
 }

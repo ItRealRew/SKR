@@ -5,7 +5,9 @@
  */
 package Facade;
 
+import Entity.Stock;
 import Entity.Thing;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -27,6 +29,8 @@ public interface ThingFacadeLocal {
     List<Thing> findAll();
 
     List<Thing> findRange(int[] range);
+    
+    ArrayList<Thing> findByStorage (Stock stock);
 
     int count();
     

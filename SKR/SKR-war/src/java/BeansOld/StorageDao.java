@@ -31,7 +31,7 @@ public class StorageDao {
     
     public String addStor() {
         //storages.add(s);
-        return "s";
+        return "sucsees";
     }
 
     

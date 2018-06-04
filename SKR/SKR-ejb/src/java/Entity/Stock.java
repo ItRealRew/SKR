@@ -34,7 +34,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Stock.findAll", query = "SELECT s FROM Stock s")
     , @NamedQuery(name = "Stock.findById", query = "SELECT s FROM Stock s WHERE s.id = :id")
     , @NamedQuery(name = "Stock.findByName", query = "SELECT s FROM Stock s WHERE s.name = :name")
-    , @NamedQuery(name = "Stock.findByPathimg", query = "SELECT s FROM Stock s WHERE s.pathimg = :pathimg")})
+    , @NamedQuery(name = "Stock.findByPathimg", query = "SELECT s FROM Stock s WHERE s.pathimg = :pathimg")
+        , @NamedQuery(name = "Stock.findLast", query = "select s from Stock s order by s.id desc")
+    , @NamedQuery(name = "Stock.findByBlocked", query = "SELECT s FROM Stock s WHERE s.blocked = :blocked")})
 public class Stock implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,6 +55,10 @@ public class Stock implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "Path_img")
     private String pathimg;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "Blocked")
+    private boolean blocked;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStock")
     private Collection<StockUser> stockUserCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStock")
@@ -65,10 +71,11 @@ public class Stock implements Serializable {
         this.id = id;
     }
 
-    public Stock(Integer id, String name, String pathimg) {
+    public Stock(Integer id, String name, String pathimg, boolean blocked) {
         this.id = id;
         this.name = name;
         this.pathimg = pathimg;
+        this.blocked = blocked;
     }
 
     public Integer getId() {
@@ -93,6 +100,14 @@ public class Stock implements Serializable {
 
     public void setPathimg(String pathimg) {
         this.pathimg = pathimg;
+    }
+
+    public boolean getBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 
     @XmlTransient

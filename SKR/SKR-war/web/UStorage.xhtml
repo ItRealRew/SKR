@@ -24,7 +24,7 @@
 
             <div class="menu__links">
                 <a class=" menu__links-item enty">
-                    <h:outputText value="#{loginBean.name}" />
+                    <h:outputText value="#{loginBean.user.name}" />
                 </a>
                 <a class="menu__links-item">Выход</a>
             </div>
@@ -47,7 +47,7 @@
             <div class="content">
 
                 <h:form>
-                    <h:dataTable value="#{StorageDao.storages}" var="var" class="forma">
+                    <h:dataTable value="#{storagesBean.viewStorages(loginBean.user)}" var="var" class="forma">
                         <h:column>
                             <f:facet name="header"> № </f:facet>
                             #{var.id}
@@ -56,26 +56,22 @@
                             <f:facet name="header"> Название </f:facet>
                             #{var.name}
                         </h:column>
-                        <h:column>
-                            <f:facet name="header"> Описание </f:facet>
-                            #{var.type}
-                        </h:column>
 
                         <h:column>
                             <f:facet name="header"> Выбрать </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            <h:commandLink action="#{storagesBean.selectStorage(var.id)}" value="OK">
                             </h:commandLink>
                         </h:column>
 
                         <h:column>
                             <f:facet name="header"> Удалить </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            <h:commandLink action="#{storagesBean.delStorage(var.id)}" value="OK">
                             </h:commandLink>
                         </h:column>
 
                         <h:column>
                             <f:facet name="header"> Редактировать </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            <h:commandLink action="#{storagesBean.selectEditStorage(var.id)}" value="OK">
                             </h:commandLink>
                         </h:column>
 

@@ -37,6 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Thing.findByName", query = "SELECT t FROM Thing t WHERE t.name = :name")
     , @NamedQuery(name = "Thing.findByQuantity", query = "SELECT t FROM Thing t WHERE t.quantity = :quantity")
     , @NamedQuery(name = "Thing.findByDateupdate", query = "SELECT t FROM Thing t WHERE t.dateupdate = :dateupdate")
+            , @NamedQuery(name = "Thing.findByStorage", query = "SELECT t FROM Thing t WHERE t.idStock = :idStock")
+        
     , @NamedQuery(name = "Thing.findByNameimg", query = "SELECT t FROM Thing t WHERE t.nameimg = :nameimg")})
 public class Thing implements Serializable {
 

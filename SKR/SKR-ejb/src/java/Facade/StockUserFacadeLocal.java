@@ -5,7 +5,10 @@
  */
 package Facade;
 
+import Entity.Stock;
 import Entity.StockUser;
+import Entity.User;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -25,6 +28,8 @@ public interface StockUserFacadeLocal {
     StockUser find(Object id);
 
     List<StockUser> findAll();
+    
+    ArrayList<Stock> findStockUser(User User);
 
     List<StockUser> findRange(int[] range);
 
