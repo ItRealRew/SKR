@@ -9,6 +9,10 @@
                 <library dirs="100">
                     <file>${reference.SKR-ejb.dist}</file>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.primefaces-6.2.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>

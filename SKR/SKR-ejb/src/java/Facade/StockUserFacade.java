@@ -47,5 +47,7 @@ public class StockUserFacade extends AbstractFacade<StockUser> implements StockU
         return list;
 
     }
+    
+
 
 }

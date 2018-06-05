@@ -8,7 +8,10 @@ package Facade;
 import Entity.Stock;
 import Entity.Thing;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,16 +34,47 @@ public class ThingFacade extends AbstractFacade<Thing> implements ThingFacadeLoc
     public ThingFacade() {
         super(Thing.class);
     }
-    
-        public ArrayList<Thing> findByStorage (Stock stock) {
-        List list = em.createNamedQuery("Thing.findByStorage").setParameter("idStock", stock).getResultList();
-        
-         ArrayList array = new ArrayList();
 
-        for (int i=0; i<list.size() ;i++){
+    public ArrayList<Thing> findByStorage(Stock stock) {
+        List list = em.createNamedQuery("Thing.findByStorage").setParameter("idStock", stock).getResultList();
+
+        ArrayList array = new ArrayList();
+
+        for (int i = 0; i < list.size(); i++) {
             array.add(list.get(i));
         }
         return array;
     }
+
+    public Boolean findByNameInStock(String name,Stock idStock) {
+
+        List list = em.createNamedQuery("Thing.findByNameInStock").setParameter("name", name).setParameter("idStock", idStock).getResultList();
+        if (list.size() > 0) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public Thing findByNameForObjec(String name) {
+
+        return (Thing) em.createNamedQuery("Thing.findByName").setParameter("name", name).getResultList().get(0);
+
+    }
+
+    public List<Thing> findByPathAndStock(String name, Stock idStock) {
+System.out.println("1  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //List<Thing> result = new ArrayList<>();
+
+
+System.out.println(idStock.getName()+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            
     
+        
+
+        
+System.out.println("5  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        return (List<Thing>)em.createNamedQuery("Thing.findByPathAndStock").setParameter("name", name).setParameter("idStock", idStock).getResultList();
+    }
+
 }

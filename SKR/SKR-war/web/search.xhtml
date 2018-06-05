@@ -5,7 +5,12 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
 
 <head>
     <title>SKR/ТЕКСТЗАПРОСА</title>
@@ -29,7 +34,7 @@ and open the template in the editor.
 
             <div class="menu__links">
                 <a class=" menu__links-item enty">
-                    <h:outputText value="#{MainBean.name}" />
+                    <h:outputText value="#{loginBean.user.name}" />
                 </a>
                 <a class="menu__links-item">Выход</a>
             </div>
@@ -41,50 +46,49 @@ and open the template in the editor.
             </div>
         </div>
         
+         <h:form>
         <div class="fakeheadpage1">
             <div class="headpage">
                 <i class="secret">.</i>
                 <div class="a-wrapper" data-text="">
-                    <a href="http://localhost:8080/SKR-war/faces/search.xhtml">GO</a>
+                                                          
+                    <h:commandLink action="#{searchBean.goSearch()}" value="GO">
+                            </h:commandLink>
+                        
                 </div>
                 <div class="input-wrapper" data-text="">
-                    <input type="text" placeholder="Search…"></input>
+                    <h:inputText a:placeholder="Search…" value="#{searchBean.searchSrt}"></h:inputText>
                 </div>
             </div>
         </div>
+             </h:form>
 
         <div class="fakecontent">
             <div class="content">
                 <h:form>
-                    <h:dataTable value="#{StorageDao.storages}" var="var" class="forma">
+                    <h:dataTable value="#{searchBean.searchBysearchSrt(loginBean.user)}" var="var" class="forma">
                         <h:column>
                             <f:facet name="header"> № </f:facet>
                             #{var.id}
                         </h:column>
                         <h:column>
                             <f:facet name="header"> Предмет</f:facet>
-                            #{var.name}
+                            #{var.thing.name}
                         </h:column>
                         <h:column>
                             <f:facet name="header"> Хранилище </f:facet>
-                            #{var.type}
+                            #{var.stock.name}
                         </h:column>
 
                         <h:column>
                             <f:facet name="header"> Выбрать</f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            <h:commandLink action="#{storagesBean.selectStorage(var.stock.id)}" value="OK">
                             </h:commandLink>
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header"> Добавить </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK">
-                            </h:commandLink>
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header"> Забрать </f:facet>
-                            <h:commandLink action="#{StorageDao.select()}" value="OK">
+                            <f:facet name="header"> Удалить </f:facet>
+                            <h:commandLink action="#{thingBean.delThing(var.thing)}" value="OK">
                             </h:commandLink>
                         </h:column>
 

@@ -32,6 +32,7 @@ public interface StockUserFacadeLocal {
     ArrayList<Stock> findStockUser(User User);
 
     List<StockUser> findRange(int[] range);
+    
 
     int count();
     

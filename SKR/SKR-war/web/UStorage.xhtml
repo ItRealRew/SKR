@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
     <title>SKR/USTORAGE</title>
 
@@ -32,16 +33,21 @@
     </header>
 
     <div class="cont">
+        <h:form>
         <div class="fakeheadpage">
             <div class="headpage"><i class="texheadtpage" title="Страница выбора нужного хранилища, создания нового, удаления или редактирования старого.">UStorage</i>/<i class="textheadlink" title="Нажмите, что бы добавить новое хранилище"><a href="/SKR-war/faces/addStorage.xhtml">Создать</a></i>
                  <div class="a-wrapper" data-text="">
-                   <a href="http://localhost:8080/SKR-war/faces/search.xhtml">GO</a>
+                                       
+                    <h:commandLink action="#{searchBean.goSearch()}" value="GO">
+                            </h:commandLink>
+                        
                 </div>
                 <div class="input-wrapper" data-text="">
-                    <input type="text" placeholder="Search…"></input>
+                     <h:inputText a:placeholder="Search…" value="#{searchBean.searchSrt}"></h:inputText>
                 </div>
             </div>
         </div>
+        </h:form>
 
         <div class="fakecontent">
             <div class="content">

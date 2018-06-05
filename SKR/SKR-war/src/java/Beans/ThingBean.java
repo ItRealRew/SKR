@@ -39,9 +39,10 @@ public class ThingBean implements Serializable {
     UnitFacadeLocal unitFacadeLocal;
 
     private Thing thing;
+    private List<Thing> listThing;
 
     private String name;
-    private int quantity;
+    private Integer quantity;
     private Date dateupdate;
     private String nameimg;
     private Stock idStock;
@@ -65,11 +66,11 @@ public class ThingBean implements Serializable {
         this.name = name;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -113,11 +114,29 @@ public class ThingBean implements Serializable {
         this.unitId = unitId;
     }
 
-    public ArrayList<Thing> viewThing(Stock stock) {
-        ArrayList<Thing> thing = thingFacadeLocal.findByStorage(stock);
+    public List<Thing> getListThing() {
+        return listThing;
+    }
 
-        return thing;
+    public void setListThing(List<Thing> listThing) {
+        this.listThing = listThing;
+    }
 
+    public List<Thing> viewThing(Stock stock) {
+        listThing = thingFacadeLocal.findByStorage(stock);
+
+        return listThing;
+
+    }
+
+    public List<String> viewThingString() {
+        List<String> matches = new ArrayList<>();
+
+        for (Thing s : listThing) {
+            matches.add(s.getName());
+
+        }
+        return matches;
     }
 
     public Collection<Unit> selectUnit() {
@@ -127,29 +146,51 @@ public class ThingBean implements Serializable {
 
     public String addThing(Stock stock) {
 
-        Thing thisThing = new Thing();
-        Unit un = new Unit();
-        Date date = new Date();
-        un = unitFacadeLocal.find((Object) unitId);
+        if (thingFacadeLocal.findByNameInStock(name,stock)) {
 
-        thisThing.setName(name);
-        thisThing.setNameimg("/img");
-        thisThing.setQuantity(quantity);
-        thisThing.setUnit(un);
-        thisThing.setDateupdate(date);
-        thisThing.setIdStock(stock);
+            Unit un = unitFacadeLocal.find((Object) unitId);
 
-        thingFacadeLocal.create(thisThing);
+            Thing thisThing = thingFacadeLocal.findByNameForObjec(name);
+            thisThing.setQuantity(getQuantity());
+            thisThing.setUnit(un);
 
+            thingFacadeLocal.edit(thisThing);
+
+        } else {
+            Thing thisThing = new Thing();
+            Unit un = unitFacadeLocal.find((Object) unitId);
+            Date date = new Date();
+
+            thisThing.setName(name);
+            thisThing.setNameimg("/img");
+            thisThing.setQuantity(getQuantity());
+            thisThing.setUnit(un);
+            thisThing.setDateupdate(date);
+            thisThing.setIdStock(stock);
+
+            thingFacadeLocal.create(thisThing);
+
+        }
+        setAllNull();
         return "success";
 
     }
-    
-        public String delThing(Thing thisThing) {
-            
-            thingFacadeLocal.remove(thisThing);
+
+    public String delThing(Thing thisThing) {
+
+        thingFacadeLocal.remove(thisThing);
 
         return "success";
+    }
+
+    public void setAllNull() {
+
+        name = null;
+        quantity = null;
+        dateupdate = null;
+        nameimg = null;
+        idStock = null;
+
     }
 
 }

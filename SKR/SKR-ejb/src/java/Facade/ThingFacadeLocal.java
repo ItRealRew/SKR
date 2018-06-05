@@ -29,9 +29,15 @@ public interface ThingFacadeLocal {
     List<Thing> findAll();
 
     List<Thing> findRange(int[] range);
-    
-    ArrayList<Thing> findByStorage (Stock stock);
+
+    ArrayList<Thing> findByStorage(Stock stock);
+
+    Boolean findByNameInStock(String name,Stock idStock);
+
+    Thing findByNameForObjec(String name);
+
+    List<Thing> findByPathAndStock(String name, Stock idStock);
 
     int count();
-    
+
 }

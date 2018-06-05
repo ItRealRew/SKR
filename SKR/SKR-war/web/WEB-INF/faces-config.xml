@@ -22,12 +22,20 @@
             <from-outcome>edit</from-outcome>
             <to-view-id>/editStorage.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>goSearch</from-outcome>
+            <to-view-id>/search.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/UProduct.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>success</from-outcome>
             <to-view-id>/UProduct.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>goSearch</from-outcome>
+            <to-view-id>/search.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -57,6 +65,21 @@
         <navigation-case>
             <from-outcome>success</from-outcome>
             <to-view-id>/UStorage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/search.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>goSearch</from-outcome>
+            <to-view-id>/search.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>toUProduct</from-outcome>
+            <to-view-id>/UProduct.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/search.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

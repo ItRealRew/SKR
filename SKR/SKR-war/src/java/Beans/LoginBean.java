@@ -29,6 +29,7 @@ public class LoginBean implements Serializable {
     @EJB
     RoleFacadeLocal role;
 
+
     private User user;
     private String name;
     private String password;
@@ -62,6 +63,28 @@ public class LoginBean implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+    
+        public Collection<User> getAll() {
+        return userFacadeLocal.findAll();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+
+    public void setError(String error) {
+        this.error = error;
+    }
 
     public String InputSystem() {
 
@@ -94,39 +117,5 @@ public class LoginBean implements Serializable {
             return "404";
         }
     }
-
-    public Collection<User> getAll() {
-        return userFacadeLocal.findAll();
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return the error
-     */
-    public String getError() {
-        return error;
-    }
-
-    /**
-     * @param error the error to set
-     */
-    public void setError(String error) {
-        this.error = error;
-    }
-
-
 
 }
