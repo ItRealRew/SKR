@@ -26,6 +26,10 @@
             <from-outcome>goSearch</from-outcome>
             <to-view-id>/search.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/UProduct.xhtml</from-view-id>

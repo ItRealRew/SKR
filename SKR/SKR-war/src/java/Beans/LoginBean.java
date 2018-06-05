@@ -29,7 +29,6 @@ public class LoginBean implements Serializable {
     @EJB
     RoleFacadeLocal role;
 
-
     private User user;
     private String name;
     private String password;
@@ -63,15 +62,14 @@ public class LoginBean implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
-        public Collection<User> getAll() {
+
+    public Collection<User> getAll() {
         return userFacadeLocal.findAll();
     }
 
     public String getEmail() {
         return email;
     }
-
 
     public void setEmail(String email) {
         this.email = email;
@@ -80,7 +78,6 @@ public class LoginBean implements Serializable {
     public String getError() {
         return error;
     }
-
 
     public void setError(String error) {
         this.error = error;
@@ -116,6 +113,16 @@ public class LoginBean implements Serializable {
             setError("Такой логин/email уже зарегистрирован");
             return "404";
         }
+    }
+
+    public String logout() {
+
+        user = null;
+        name = null;
+        password = null;
+        email = null;
+        error = null;
+        return "logout";
     }
 
 }
