@@ -40,6 +40,7 @@ public class StockUserFacade extends AbstractFacade<StockUser> implements StockU
          ArrayList list = new ArrayList();
 
         for (int i=0; i<l.size() ;i++){
+            if(!l.get(i).getIdStock().getBlocked())
             list.add(l.get(i).getIdStock());
         }
         
@@ -48,6 +49,14 @@ public class StockUserFacade extends AbstractFacade<StockUser> implements StockU
 
     }
     
+    public StockUser findStock(Stock idStock) {
+
+        StockUser su = (StockUser) em.createNamedQuery("StockUser.findStock").setParameter("idStock", idStock).getResultList().get(0);
+      
+        return su;
+
+    }
+        
 
 
 }

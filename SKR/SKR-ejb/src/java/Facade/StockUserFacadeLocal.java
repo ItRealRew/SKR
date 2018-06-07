@@ -33,7 +33,8 @@ public interface StockUserFacadeLocal {
 
     List<StockUser> findRange(int[] range);
     
-
+StockUser findStock(Stock idStock);
+    
     int count();
     
 }

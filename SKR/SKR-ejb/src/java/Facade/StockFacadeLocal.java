@@ -34,6 +34,9 @@ public interface StockFacadeLocal {
     
     Stock findById(int id);
 
+    List<Stock> search(String str);
+    
+    
     int count();
     
 }

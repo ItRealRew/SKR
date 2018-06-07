@@ -37,6 +37,8 @@ public interface ThingFacadeLocal {
     Thing findByNameForObjec(String name);
 
     List<Thing> findByPathAndStock(String name, Stock idStock);
+    
+   // ArrayList<Thing> findByStorageAdmin(Stock stock);
 
     int count();
 

@@ -57,10 +57,6 @@
                             <h:inputText a:placeholder="LOGIN" a:value="#{loginBean.name}"></h:inputText>
                             <h:inputText value="#{loginBean.password}" a:placeholder="PASSWORD"></h:inputText>
                             <h:inputText value="#{loginBean.email}" a:placeholder="EMAIL"></h:inputText>
-                            <!--<h:inputText h:inputtype="text" placeholder="name" />
-                            <h:inputText type="password" placeholder="password" />
-                            <h:inputText type="text" placeholder="email address" />
-                            <button>create</button>-->
                             <h:commandButton value="Зарегистрироваться" action="#{loginBean.toRegister()}" style="batonOK" />
                             <p class="message">Already registered? <a href="#">Sign In</a></p>
                        </h:form>

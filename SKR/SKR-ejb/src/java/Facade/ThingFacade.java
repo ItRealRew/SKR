@@ -63,18 +63,16 @@ public class ThingFacade extends AbstractFacade<Thing> implements ThingFacadeLoc
     }
 
     public List<Thing> findByPathAndStock(String name, Stock idStock) {
-System.out.println("1  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        //List<Thing> result = new ArrayList<>();
-
-
-System.out.println(idStock.getName()+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            
-    
+        List<Thing> things = em.createNamedQuery("Thing.findByPathAndStock").setParameter("name", name).setParameter("idStock", idStock).getResultList();
+        List<Thing> t = new ArrayList<Thing>();
         
+        for (int i=0;i<things.size();i++){
+            if (!things.get(i).getIdStock().getBlocked())
+            t.add(things.get(i));
+        }
 
-        
-System.out.println("5  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        return (List<Thing>)em.createNamedQuery("Thing.findByPathAndStock").setParameter("name", name).setParameter("idStock", idStock).getResultList();
+
+        return t;
     }
 
 }

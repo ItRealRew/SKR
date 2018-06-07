@@ -48,5 +48,13 @@ public class StockFacade extends AbstractFacade<Stock> implements StockFacadeLoc
         return s;
     }
 
+    
+    public  List<Stock> search(String str) {
+        
+        List<Stock>  s = em.createNamedQuery("Stock.search").setParameter("name", str).getResultList();
+        
+        return s;
+    }
+       
 
 }

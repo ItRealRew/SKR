@@ -70,11 +70,12 @@ public class StoragesBean implements Serializable {
         
     }
     
-    public String delStorage(int idStorage) {
-        Stock stock = stockFacadeLocal.findById(idStorage);
-        stockFacadeLocal.remove(stock);
+    public String delStorage(Stock idStorage) {
         
-        //+надо каскадное удаление
+        stockUserFacadeLocal.remove(stockUserFacadeLocal.findStock(idStorage));
+        
+        Stock stock = stockFacadeLocal.findById(idStorage.getId());
+        stockFacadeLocal.remove(stock);
         
         return "success";
         

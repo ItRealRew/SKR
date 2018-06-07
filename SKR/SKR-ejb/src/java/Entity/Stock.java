@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Stock.findByName", query = "SELECT s FROM Stock s WHERE s.name = :name")
     , @NamedQuery(name = "Stock.findByPathimg", query = "SELECT s FROM Stock s WHERE s.pathimg = :pathimg")
         , @NamedQuery(name = "Stock.findLast", query = "select s from Stock s order by s.id desc")
+            , @NamedQuery(name = "Stock.search", query = "SELECT s FROM Stock s WHERE (s.name LIKE CONCAT('%',:name,'%'))") 
     , @NamedQuery(name = "Stock.findByBlocked", query = "SELECT s FROM Stock s WHERE s.blocked = :blocked")})
 public class Stock implements Serializable {
 
