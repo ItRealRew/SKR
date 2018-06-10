@@ -34,13 +34,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Thing.findAll", query = "SELECT t FROM Thing t")
     , @NamedQuery(name = "Thing.findById", query = "SELECT t FROM Thing t WHERE t.id = :id")
-        , @NamedQuery(name = "Thing.findByName", query = "SELECT t FROM Thing t WHERE t.name = :name ")
-    , @NamedQuery(name = "Thing.findByNameInStock", query = "SELECT t FROM Thing t WHERE (t.name = :name) AND (t.idStock =:idStock)")
+    , @NamedQuery(name = "Thing.findByName", query = "SELECT t FROM Thing t WHERE t.name = :name")
     , @NamedQuery(name = "Thing.findByQuantity", query = "SELECT t FROM Thing t WHERE t.quantity = :quantity")
-    , @NamedQuery(name = "Thing.findByDateupdate", query = "SELECT t FROM Thing t WHERE t.dateupdate = :dateupdate")
-    , @NamedQuery(name = "Thing.findByStorage", query = "SELECT t FROM Thing t WHERE t.idStock = :idStock")
-    , @NamedQuery(name = "Thing.findByPathAndStock", query = "SELECT t FROM Thing t WHERE (t.name LIKE CONCAT('%',:name,'%')) AND (t.idStock =:idStock)") 
-    , @NamedQuery(name = "Thing.findByNameimg", query = "SELECT t FROM Thing t WHERE t.nameimg = :nameimg")})
+    , @NamedQuery(name = "Thing.findByDateupdate", query = "SELECT t FROM Thing t WHERE t.dateupdate = :dateupdate")})
 public class Thing implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -63,17 +59,15 @@ public class Thing implements Serializable {
     @Column(name = "Date_update")
     @Temporal(TemporalType.DATE)
     private Date dateupdate;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "Name_img")
-    private String nameimg;
-    @JoinColumn(name = "id_stock", referencedColumnName = "id")
+    @JoinColumn(name = "Stock", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Stock idStock;
+    private Stock stock;
     @JoinColumn(name = "Unit", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Unit unit;
+    @JoinColumn(name = "img", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Img img;
 
     public Thing() {
     }
@@ -82,12 +76,11 @@ public class Thing implements Serializable {
         this.id = id;
     }
 
-    public Thing(Integer id, String name, int quantity, Date dateupdate, String nameimg) {
+    public Thing(Integer id, String name, int quantity, Date dateupdate) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.dateupdate = dateupdate;
-        this.nameimg = nameimg;
     }
 
     public Integer getId() {
@@ -122,20 +115,12 @@ public class Thing implements Serializable {
         this.dateupdate = dateupdate;
     }
 
-    public String getNameimg() {
-        return nameimg;
+    public Stock getStock() {
+        return stock;
     }
 
-    public void setNameimg(String nameimg) {
-        this.nameimg = nameimg;
-    }
-
-    public Stock getIdStock() {
-        return idStock;
-    }
-
-    public void setIdStock(Stock idStock) {
-        this.idStock = idStock;
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 
     public Unit getUnit() {
@@ -144,6 +129,14 @@ public class Thing implements Serializable {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public Img getImg() {
+        return img;
+    }
+
+    public void setImg(Img img) {
+        this.img = img;
     }
 
     @Override
@@ -170,5 +163,5 @@ public class Thing implements Serializable {
     public String toString() {
         return "Entity.Thing[ id=" + id + " ]";
     }
-
+    
 }

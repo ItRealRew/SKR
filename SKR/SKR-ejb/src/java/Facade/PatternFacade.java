@@ -5,7 +5,7 @@
  */
 package Facade;
 
-import Entity.User;
+import Entity.Pattern;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author INFERUS
  */
 @Stateless
-public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal {
+public class PatternFacade extends AbstractFacade<Pattern> implements PatternFacadeLocal {
 
     @PersistenceContext(unitName = "SKR-ejbPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
         return em;
     }
 
-    public UserFacade() {
-        super(User.class);
+    public PatternFacade() {
+        super(Pattern.class);
     }
     
 }

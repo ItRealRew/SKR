@@ -24,18 +24,10 @@ public interface UserFacadeLocal {
 
     User find(Object id);
 
-    Boolean registered(String name, String email);
-
-    User registered(String name);
-
-    String findUserRole(String name, String password);
-
     List<User> findAll();
 
     List<User> findRange(int[] range);
 
     int count();
     
-    User findById(int id);
-
 }

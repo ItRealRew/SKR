@@ -37,11 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id")
     , @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")
     , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
-    , @NamedQuery(name = "User.findByUserOrEmail", query = "SELECT u FROM User u WHERE u.name = :name OR u.email= :email")
-    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
-    , @NamedQuery(name = "User.findUserRole", query = "SELECT u FROM User u WHERE u.name = :name AND u.password= :password")
-
-})
+    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

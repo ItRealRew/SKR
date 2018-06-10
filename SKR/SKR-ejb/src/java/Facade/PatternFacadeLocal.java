@@ -5,7 +5,7 @@
  */
 package Facade;
 
-import Entity.Role;
+import Entity.Pattern;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,19 @@ import javax.ejb.Local;
  * @author INFERUS
  */
 @Local
-public interface RoleFacadeLocal {
+public interface PatternFacadeLocal {
 
-    void create(Role role);
+    void create(Pattern pattern);
 
-    void edit(Role role);
+    void edit(Pattern pattern);
 
-    void remove(Role role);
+    void remove(Pattern pattern);
 
-    Role find(Object id);
+    Pattern find(Object id);
 
-    List<Role> findAll();
+    List<Pattern> findAll();
 
-    List<Role> findRange(int[] range);
+    List<Pattern> findRange(int[] range);
 
     int count();
     

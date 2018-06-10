@@ -5,14 +5,8 @@
  */
 package Facade;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.EntityManager;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 
 /**
  *
@@ -31,24 +25,6 @@ public abstract class AbstractFacade<T> {
     public void create(T entity) {
         getEntityManager().persist(entity);
     }
-    
-//    public void create(T entity) {
-//
-//    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-//    Validator validator = factory.getValidator();
-//    Set<ConstraintViolation<T>> constraintViolations = validator.validate(entity);
-//    if(constraintViolations.size() > 0){
-//        Iterator<ConstraintViolation<T>> iterator = constraintViolations.iterator();
-//        while(iterator.hasNext()){
-//            ConstraintViolation<T> cv = iterator.next();
-//            System.err.println(cv.getRootBeanClass().getName()+"."+cv.getPropertyPath() + " " +cv.getMessage());
-//
-//            System.out.println (cv.getRootBeanClass().getSimpleName()+"."+cv.getPropertyPath() + " " +cv.getMessage()+ " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//        }
-//    }else{
-//        getEntityManager().persist(entity);
-//    }
-//}
 
     public void edit(T entity) {
         getEntityManager().merge(entity);

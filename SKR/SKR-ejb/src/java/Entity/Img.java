@@ -22,7 +22,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -31,13 +30,12 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author INFERUS
  */
 @Entity
-@Table(name = "Stock")
+@Table(name = "Img")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Stock.findAll", query = "SELECT s FROM Stock s")
-    , @NamedQuery(name = "Stock.findById", query = "SELECT s FROM Stock s WHERE s.id = :id")
-    , @NamedQuery(name = "Stock.findByName", query = "SELECT s FROM Stock s WHERE s.name = :name")})
-public class Stock implements Serializable {
+    @NamedQuery(name = "Img.findAll", query = "SELECT i FROM Img i")
+    , @NamedQuery(name = "Img.findById", query = "SELECT i FROM Img i WHERE i.id = :id")})
+public class Img implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -47,33 +45,25 @@ public class Stock implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "Name")
-    private String name;
-    @Basic(optional = false)
-    @NotNull
     @Lob
-    @Column(name = "Blocked")
-    private byte[] blocked;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStock")
-    private Collection<StockUser> stockUserCollection;
-    @JoinColumn(name = "Pattern", referencedColumnName = "id")
+    @Column(name = "img")
+    private byte[] img;
+    @JoinColumn(name = "id_patern", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Pattern pattern;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stock")
+    private Pattern idPatern;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "img")
     private Collection<Thing> thingCollection;
 
-    public Stock() {
+    public Img() {
     }
 
-    public Stock(Integer id) {
+    public Img(Integer id) {
         this.id = id;
     }
 
-    public Stock(Integer id, String name, byte[] blocked) {
+    public Img(Integer id, byte[] img) {
         this.id = id;
-        this.name = name;
-        this.blocked = blocked;
+        this.img = img;
     }
 
     public Integer getId() {
@@ -84,37 +74,20 @@ public class Stock implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public byte[] getImg() {
+        return img;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setImg(byte[] img) {
+        this.img = img;
     }
 
-    public byte[] getBlocked() {
-        return blocked;
+    public Pattern getIdPatern() {
+        return idPatern;
     }
 
-    public void setBlocked(byte[] blocked) {
-        this.blocked = blocked;
-    }
-
-    @XmlTransient
-    public Collection<StockUser> getStockUserCollection() {
-        return stockUserCollection;
-    }
-
-    public void setStockUserCollection(Collection<StockUser> stockUserCollection) {
-        this.stockUserCollection = stockUserCollection;
-    }
-
-    public Pattern getPattern() {
-        return pattern;
-    }
-
-    public void setPattern(Pattern pattern) {
-        this.pattern = pattern;
+    public void setIdPatern(Pattern idPatern) {
+        this.idPatern = idPatern;
     }
 
     @XmlTransient
@@ -136,10 +109,10 @@ public class Stock implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Stock)) {
+        if (!(object instanceof Img)) {
             return false;
         }
-        Stock other = (Stock) object;
+        Img other = (Img) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -148,7 +121,7 @@ public class Stock implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Stock[ id=" + id + " ]";
+        return "Entity.Img[ id=" + id + " ]";
     }
     
 }

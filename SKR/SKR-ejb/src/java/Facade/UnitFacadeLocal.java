@@ -27,7 +27,7 @@ public interface UnitFacadeLocal {
     List<Unit> findAll();
 
     List<Unit> findRange(int[] range);
-    
+
     int count();
     
 }

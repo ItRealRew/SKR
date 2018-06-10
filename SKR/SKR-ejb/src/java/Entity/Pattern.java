@@ -14,9 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -31,13 +28,14 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author INFERUS
  */
 @Entity
-@Table(name = "Stock")
+@Table(name = "Pattern")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Stock.findAll", query = "SELECT s FROM Stock s")
-    , @NamedQuery(name = "Stock.findById", query = "SELECT s FROM Stock s WHERE s.id = :id")
-    , @NamedQuery(name = "Stock.findByName", query = "SELECT s FROM Stock s WHERE s.name = :name")})
-public class Stock implements Serializable {
+    @NamedQuery(name = "Pattern.findAll", query = "SELECT p FROM Pattern p")
+    , @NamedQuery(name = "Pattern.findById", query = "SELECT p FROM Pattern p WHERE p.id = :id")
+    , @NamedQuery(name = "Pattern.findByName", query = "SELECT p FROM Pattern p WHERE p.name = :name")
+    , @NamedQuery(name = "Pattern.findByPathimg", query = "SELECT p FROM Pattern p WHERE p.pathimg = :pathimg")})
+public class Pattern implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -47,33 +45,29 @@ public class Stock implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
     @Column(name = "Name")
-    private String name;
+    private int name;
     @Basic(optional = false)
     @NotNull
-    @Lob
-    @Column(name = "Blocked")
-    private byte[] blocked;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStock")
-    private Collection<StockUser> stockUserCollection;
-    @JoinColumn(name = "Pattern", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Pattern pattern;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stock")
-    private Collection<Thing> thingCollection;
+    @Size(min = 1, max = 255)
+    @Column(name = "Path_img")
+    private String pathimg;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPatern")
+    private Collection<Img> imgCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pattern")
+    private Collection<Stock> stockCollection;
 
-    public Stock() {
+    public Pattern() {
     }
 
-    public Stock(Integer id) {
+    public Pattern(Integer id) {
         this.id = id;
     }
 
-    public Stock(Integer id, String name, byte[] blocked) {
+    public Pattern(Integer id, int name, String pathimg) {
         this.id = id;
         this.name = name;
-        this.blocked = blocked;
+        this.pathimg = pathimg;
     }
 
     public Integer getId() {
@@ -84,46 +78,38 @@ public class Stock implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
+    public int getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(int name) {
         this.name = name;
     }
 
-    public byte[] getBlocked() {
-        return blocked;
+    public String getPathimg() {
+        return pathimg;
     }
 
-    public void setBlocked(byte[] blocked) {
-        this.blocked = blocked;
-    }
-
-    @XmlTransient
-    public Collection<StockUser> getStockUserCollection() {
-        return stockUserCollection;
-    }
-
-    public void setStockUserCollection(Collection<StockUser> stockUserCollection) {
-        this.stockUserCollection = stockUserCollection;
-    }
-
-    public Pattern getPattern() {
-        return pattern;
-    }
-
-    public void setPattern(Pattern pattern) {
-        this.pattern = pattern;
+    public void setPathimg(String pathimg) {
+        this.pathimg = pathimg;
     }
 
     @XmlTransient
-    public Collection<Thing> getThingCollection() {
-        return thingCollection;
+    public Collection<Img> getImgCollection() {
+        return imgCollection;
     }
 
-    public void setThingCollection(Collection<Thing> thingCollection) {
-        this.thingCollection = thingCollection;
+    public void setImgCollection(Collection<Img> imgCollection) {
+        this.imgCollection = imgCollection;
+    }
+
+    @XmlTransient
+    public Collection<Stock> getStockCollection() {
+        return stockCollection;
+    }
+
+    public void setStockCollection(Collection<Stock> stockCollection) {
+        this.stockCollection = stockCollection;
     }
 
     @Override
@@ -136,10 +122,10 @@ public class Stock implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Stock)) {
+        if (!(object instanceof Pattern)) {
             return false;
         }
-        Stock other = (Stock) object;
+        Pattern other = (Pattern) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -148,7 +134,7 @@ public class Stock implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Stock[ id=" + id + " ]";
+        return "Entity.Pattern[ id=" + id + " ]";
     }
     
 }

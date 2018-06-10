@@ -23,20 +23,11 @@ public interface StockFacadeLocal {
     void remove(Stock stock);
 
     Stock find(Object id);
-    
-    Stock findlast();
 
     List<Stock> findAll();
-    
-    List<Stock> findUserStock();
 
     List<Stock> findRange(int[] range);
-    
-    Stock findById(int id);
 
-    List<Stock> search(String str);
-    
-    
     int count();
     
 }
