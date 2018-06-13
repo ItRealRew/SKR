@@ -4,11 +4,11 @@
     <Scope Scope="Project">
         <Node id="404.xhtml" x="243" y="53" zoom="true"/>
         <Node id="search.xhtml" x="953" y="302" zoom="true"/>
-        <Node id="addStorage.xhtml" x="55" y="506" zoom="true"/>
         <Node id="index.xhtml" x="86" y="252" zoom="true"/>
+        <Node id="addStorage.xhtml" x="55" y="506" zoom="true"/>
         <Node id="Manage.xhtml" x="30" y="51" zoom="true"/>
-        <Node id="User.xhtml" x="900" y="150" zoom="true"/>
         <Node id="UStorage.xhtml" x="310" y="410" zoom="true"/>
+        <Node id="User.xhtml" x="900" y="150" zoom="true"/>
         <Node id="editStorage.xhtml" x="406" y="538" zoom="true"/>
         <Node id="UProduct.xhtml" x="413" y="182" zoom="true"/>
     </Scope>

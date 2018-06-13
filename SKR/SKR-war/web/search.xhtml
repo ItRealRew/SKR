@@ -33,14 +33,18 @@ and open the template in the editor.
                     <span></span>
                 </div>
 
-                <div class="menu__links">
-                    <a class=" menu__links-item enty">
-                        <h:outputText value="#{loginBean.user.name}" />
-                    </a>
-                    <a class="menu__links-item">Выход</a>
-                </div>
+                  <h:form>
+                    <div class="menu__links">
+                        <a class=" menu__links-item enty">
+                            <h:outputText value="#{loginBean.name}" />
+                        </a>
+                        <h:commandLink class="menu__links-item" action="#{loginBean.logout()}" value="Выход">
+                        </h:commandLink>
+                    </div>
+                </h:form>
             </div>
         </header>
+        
         <div class="cont">
             <div class="fakeheadpage">
                 <div class="headpage"><i class="textheadlink" title="Нажмите, что бы попасть обратно на страницу списка со всеми хранилищами"><a href="/SKR-war/faces/UStorage.xhtml">Обратно</a></i>/<i class="textheadlink" title="поисковый запрос">поисковый запрос</i>

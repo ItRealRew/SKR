@@ -28,5 +28,11 @@ public class PatternFacade extends AbstractFacade<Pattern> implements PatternFac
     public PatternFacade() {
         super(Pattern.class);
     }
+
+    
+        @Override
+    public Pattern findById(Integer id) {
+        return em.find(Pattern.class, id);
+    }
     
 }

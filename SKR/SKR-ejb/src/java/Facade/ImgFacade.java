@@ -6,6 +6,8 @@
 package Facade;
 
 import Entity.Img;
+import Entity.Pattern;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +30,13 @@ public class ImgFacade extends AbstractFacade<Img> implements ImgFacadeLocal {
     public ImgFacade() {
         super(Img.class);
     }
+
+    public List<Img> findByPattern(Pattern pattern) {
+        return em.createNamedQuery("Img.findByPattern").setParameter("idPatern", pattern).getResultList();
+    }
     
+        public Img findById(int id) {
+        return em.find(Img.class, id);
+    }
+
 }

@@ -66,14 +66,23 @@
                                                 />
 
                                 <label for="count">Количество:</label>
-                                <h:inputText value="#{thingBean.quantity}"></h:inputText>
-                                <label for="count">Измерение</label>
+                                <h:inputText value="#{thingBean.quantity}"></h:inputText><br></br>
+                                <label for="count">Измерение:  </label>
                                 <h:selectOneMenu value="#{thingBean.unitId}">
                                     <f:selectItems value="#{thingBean.selectUnit()}" var="item" 
                                                    itemLabel="#{item.unitname}" itemValue="#{item.id}"/>
 
                                 </h:selectOneMenu>
-                                <br /><br></br>
+                                
+                                
+                                <br></br><br></br>
+                                                                <label for="count">Изображение:  </label>
+                                <h:selectOneMenu value="#{thingBean.imgId}">
+                                    <f:selectItems value="#{thingBean.viewImg(storagesBean.stock.pattern)}" var="item" 
+                                                   itemLabel="#{item.name}" itemValue="#{item.id}"/>
+
+                                </h:selectOneMenu>
+                                <br></br><br></br>
                             </div>
                             <div class="add">
                                 <h:commandLink action="#{thingBean.addThing(storagesBean.stock)}" value="Подтвердить"></h:commandLink>
@@ -85,7 +94,7 @@
                         <c:forEach var="item" items="#{thingBean.viewThing(storagesBean.stock)}">
                             <div id="line_block">
                                 #{item.name} <br></br>
-                                <img src="Uimg/def.png"></img>
+                                <img src="#{item.img.imgPath}"></img>
                                 <br></br> #{item.quantity} #{item.unit.unitname}<br></br> <br></br>
                                 <div class="del" style="float:right">
                                     <h:commandLink action="#{thingBean.delThing(item)}" value="Удалить">

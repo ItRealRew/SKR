@@ -28,6 +28,8 @@ import javax.inject.Named;
 public class ThingBean implements Serializable {
 
     @EJB
+    ImgFacadeLocal imgFacadeLocal;
+    @EJB
     StockFacadeLocal stockFacadeLocal;
     @EJB
     StockUserFacadeLocal stockUserFacadeLocal;
@@ -49,6 +51,25 @@ public class ThingBean implements Serializable {
 
     private Unit unit;
     private Integer unitId;
+
+    private Img img;
+    private Integer imgId;
+
+    public Img getImg() {
+        return img;
+    }
+
+    public void setImg(Img img) {
+        this.img = img;
+    }
+
+    public Integer getImgId() {
+        return imgId;
+    }
+
+    public void setImgId(Integer imgId) {
+        this.imgId = imgId;
+    }
 
     public Thing getThing() {
         return thing;
@@ -144,15 +165,22 @@ public class ThingBean implements Serializable {
         return unitFacadeLocal.findAll();
     }
 
+    public Collection<Img> viewImg(Pattern pattern) {
+
+        return imgFacadeLocal.findByPattern(pattern);
+       
+    }
+
     public String addThing(Stock stock) {
 
-        if (thingFacadeLocal.findByNameInStock(name,stock)) {
+        if (thingFacadeLocal.findByNameInStock(name, stock)) {
 
             Unit un = unitFacadeLocal.find((Object) unitId);
 
             Thing thisThing = thingFacadeLocal.findByNameForObjec(name);
             thisThing.setQuantity(getQuantity());
             thisThing.setUnit(un);
+            thisThing.setImg(imgFacadeLocal.findById(imgId));
 
             thingFacadeLocal.edit(thisThing);
 
@@ -167,6 +195,8 @@ public class ThingBean implements Serializable {
             thisThing.setUnit(un);
             thisThing.setDateupdate(date);
             thisThing.setStock(stock);
+
+            thisThing.setImg(imgFacadeLocal.findById(imgId));
 
             thingFacadeLocal.create(thisThing);
 

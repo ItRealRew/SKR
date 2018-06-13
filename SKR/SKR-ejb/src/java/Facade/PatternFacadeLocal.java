@@ -30,4 +30,6 @@ public interface PatternFacadeLocal {
 
     int count();
     
+    Pattern findById(Integer id);
+    
 }

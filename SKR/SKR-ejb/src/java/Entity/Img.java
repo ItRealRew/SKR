@@ -22,6 +22,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -34,10 +35,17 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Img.findAll", query = "SELECT i FROM Img i")
-    , @NamedQuery(name = "Img.findById", query = "SELECT i FROM Img i WHERE i.id = :id")})
+    , @NamedQuery(name = "Img.findById", query = "SELECT i FROM Img i WHERE i.id = :id")
+    , @NamedQuery(name = "Img.findByName", query = "SELECT i FROM Img i WHERE i.name = :name")
+    , @NamedQuery(name = "Img.findByImgPath", query = "SELECT i FROM Img i WHERE i.imgPath = :imgPath")
+        
+        , @NamedQuery(name = "Img.findByPattern", query = "SELECT i FROM Img i WHERE i.idPatern = :idPatern")
+        
+})
+
 public class Img implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+ private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -45,9 +53,14 @@ public class Img implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Lob
-    @Column(name = "img")
-    private byte[] img;
+    @Size(min = 1, max = 255)
+    @Column(name = "name")
+    private String name;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "imgPath")
+    private String imgPath;
     @JoinColumn(name = "id_patern", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Pattern idPatern;
@@ -61,9 +74,10 @@ public class Img implements Serializable {
         this.id = id;
     }
 
-    public Img(Integer id, byte[] img) {
+    public Img(Integer id, String name, String imgPath) {
         this.id = id;
-        this.img = img;
+        this.name = name;
+        this.imgPath = imgPath;
     }
 
     public Integer getId() {
@@ -74,12 +88,20 @@ public class Img implements Serializable {
         this.id = id;
     }
 
-    public byte[] getImg() {
-        return img;
+    public String getName() {
+        return name;
     }
 
-    public void setImg(byte[] img) {
-        this.img = img;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 
     public Pattern getIdPatern() {

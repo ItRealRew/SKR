@@ -121,6 +121,7 @@ public class LoginBean implements Serializable {
         password = null;
         email = null;
         error = null;
+        
         return "logout";
     }
 

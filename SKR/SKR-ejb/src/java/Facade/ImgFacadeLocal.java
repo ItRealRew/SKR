@@ -6,6 +6,7 @@
 package Facade;
 
 import Entity.Img;
+import Entity.Pattern;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -30,4 +31,7 @@ public interface ImgFacadeLocal {
 
     int count();
     
+    List<Img> findByPattern(Pattern pattern);
+    
+    Img findById(int id);
 }

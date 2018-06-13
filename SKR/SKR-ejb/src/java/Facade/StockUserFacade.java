@@ -38,8 +38,6 @@ public class StockUserFacade extends AbstractFacade<StockUser> implements StockU
          ArrayList list = new ArrayList();
 
         for (int i=0; i<l.size() ;i++){
-            System.out.println(i+" 111111111111111111111111111111111111111111111111111111111");
-            if(!l.get(i).getIdStock().getBlocked())
             list.add(l.get(i).getIdStock());
         }
         
