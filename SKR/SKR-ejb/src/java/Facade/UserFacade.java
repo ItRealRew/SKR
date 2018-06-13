@@ -6,6 +6,7 @@
 package Facade;
 
 import Entity.User;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +30,43 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
         super(User.class);
     }
     
+     public User registered(String name) {
+        List list = em.createNamedQuery("User.findByName").setParameter("name", name).getResultList();
+        if (list.size() > 0) {
+            return (User) list.get(0);
+        }
+        return null;
+    }
+
+    public Boolean registered(String name, String email) {
+        List list = em.createNamedQuery("User.findByUserOrEmail").setParameter("name", name).setParameter("email", email).getResultList();
+        if (list.size() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public String findUserRole(String name, String password) {
+        String result = "";
+
+        List list = em.createNamedQuery("User.findUserRole").setParameter("name", name).setParameter("password", password).getResultList();
+        if (list.size() == 1) {
+            User u = (User) list.get(0);
+            String role = u.getRole().getRolename();
+
+            if (role.equals("user")) {
+                return "UStorage";
+            }
+            if (role.equals("admin")) {
+                return "Manage";
+            }
+
+        }
+        return result;
+    }
+    
+        @Override
+    public User findById(int id) {
+        return em.find(User.class, id);
+    }
 }

@@ -29,4 +29,10 @@ public class RoleFacade extends AbstractFacade<Role> implements RoleFacadeLocal 
         super(Role.class);
     }
     
+    public Role defaultRole(){
+        return ((Role) em.createNamedQuery("Role.findByRolename").setParameter("rolename", "user").getResultList().get(0));
+    }
+    
+    
+    
 }

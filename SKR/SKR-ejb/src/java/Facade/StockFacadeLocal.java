@@ -30,4 +30,10 @@ public interface StockFacadeLocal {
 
     int count();
     
+    List<Stock> search(String str);
+        
+    Stock findlast();
+    
+    Stock findById(int id);
+    
 }

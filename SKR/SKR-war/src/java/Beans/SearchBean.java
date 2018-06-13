@@ -70,7 +70,7 @@ public class SearchBean implements Serializable {
         for (int i = 0; i < listThing.size(); i++) {
             result = new ResSearch();
             result.setId((Integer) i + 1);
-            result.setStock(listThing.get(i).getIdStock());
+            result.setStock(listThing.get(i).getStock());
             result.setThing(listThing.get(i));
             resultList.add(result);
 

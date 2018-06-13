@@ -10,19 +10,21 @@
         <link rel="stylesheet" href="css/allPage.css"></link>
         <link rel="stylesheet" href="css/style.css"></link>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
-    </h:head>
-    <h:body>
-        
-            <header class="header">
-        <img src="images/logo.png" class="logo"></img>
-        <div class="menu">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet"></link>
 
-            <div class="menu__icon">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    </h:head>
+    <h:body>        
+
+        <header class="header">
+            <img src="images/logo.png" class="logo"></img>
+            <div class="menu">
+
+                <div class="menu__icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
                 <h:form>
                     <div class="menu__links">
@@ -33,14 +35,14 @@
                         </h:commandLink>
                     </div>
                 </h:form>
-        </div>
-    </header>
+            </div>
+        </header>
 
-   
+
         <div class="cont">
             <h:form>
                 <div class="fakeheadpage">
-                    <div class="headpage"><i class="texheadtpage" title="Страница выбора нужного хранилища, создания нового, удаления или редактирования старого.">Storage</i>/<i class="textheadlink" title="Нажмите, что бы добавить новое хранилище"><a href="/SKR-war/faces/addStorage.xhtml">Создать</a></i>
+                    <div class="headpage"><i class="texheadtpage" title="Страница выбора нужного хранилища, создания нового, удаления или редактирования старого.">Storage</i>/<a data-modal="modal_1" class="OpenModal textheadlink" title="Нажмите, что бы добавить новое хранилище">Создать</a>
                         <div class="a-wrapper" data-text="">
 
                             <h:commandLink action="#{searchBean.goSearch()}" value="GO">
@@ -78,8 +80,10 @@
 
                             <h:column>
                                 <f:facet name="header"> Редактировать </f:facet>
-                                <h:commandLink action="#{storagesBean.selectEditStorage(var.id)}" value="OK">
+                                
+                                <h:commandLink a:data-modal="modal_2" action="#{storagesBean.selectEditStorage(var.id)}" value="OK">
                                 </h:commandLink>
+                                
                             </h:column>
 
                         </h:dataTable>
@@ -93,6 +97,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="footer">
             <div class="contentFoter">StockRoom.2017-
                 <script type="text/javascript">
@@ -102,6 +107,83 @@
                 </script>
             </div>
         </div>
+        
+        
+        <!-- modal -->
+        <div id="modal_1" class="modal-overlay">
+            <div class="modal">
+
+                <a class="close-modal">
+                    <svg viewBox="0 0 20 20">
+                        <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                    </svg>
+                </a>
+                <!-- close modal -->
+                <!-- content -->
+                <div class="login-page">
+                    <div class="form">
+                        <h:form class="login-form">
+                            <label class="headpage" for="name">Название</label>
+                            <br/>
+                            <h:inputText a:placeholder="NAME STOCK" a:value="#{storagesBean.name}"></h:inputText>
+                            <label class="headpage" for="name">Шаблон</label>
+                            <br/><br/>
+                            <h:selectOneMenu value="#{storagesBean.pattern}">
+                                    <f:selectItems value="#{storagesBean.viewPattern()}" var="item" 
+                                                   itemLabel="#{item.name}" itemValue="#{item}"/>
+
+                                </h:selectOneMenu>
+                            <br/><br/>
+                            <h:commandButton value="ОК" action="#{storagesBean.addStorage(loginBean.user.id)}" style="batonOK" />
+                        </h:form>
+                    </div>
+                </div>
+                <!-- /content -->
+
+            </div>
+        </div>
+
+        <!-- overlay -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+
+        <script src="js/Modal.js"></script>
+        <script src="js/Menu.js"></script>
+        <script src="js/loginform.js"></script>
+        <!-- /modal -->
+        
+                <!-- modal -->
+        <div id="modal_2" class="modal-overlay">
+            <div class="modal">
+
+                <a class="close-modal">
+                    <svg viewBox="0 0 20 20">
+                        <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                    </svg>
+                </a>
+                <!-- close modal -->
+                <!-- content -->
+                <div class="login-page">
+                    <div class="form">
+                        <h:form style='login-form'>
+                            <label class="headpage" for="name">Название:</label>
+                            <h:inputText a:placeholder="NAME STOCK" a:value="#{storagesBean.name}"></h:inputText>
+                           <!-- <h:commandButton value="ОК" action="" style="batonOK" />-->
+                        </h:form>
+                    </div>
+                </div>
+                <!-- /content -->
+
+            </div>
+        </div>
+
+        <!-- overlay -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+
+        <script src="js/Modal.js"></script>
+        <script src="js/Menu.js"></script>
+        <script src="js/loginform.js"></script>
+        <!-- /modal -->
+        
     </h:body>
 
 </html>

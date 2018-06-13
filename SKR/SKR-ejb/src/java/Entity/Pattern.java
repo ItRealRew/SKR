@@ -33,8 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Pattern.findAll", query = "SELECT p FROM Pattern p")
     , @NamedQuery(name = "Pattern.findById", query = "SELECT p FROM Pattern p WHERE p.id = :id")
-    , @NamedQuery(name = "Pattern.findByName", query = "SELECT p FROM Pattern p WHERE p.name = :name")
-    , @NamedQuery(name = "Pattern.findByPathimg", query = "SELECT p FROM Pattern p WHERE p.pathimg = :pathimg")})
+    , @NamedQuery(name = "Pattern.findByName", query = "SELECT p FROM Pattern p WHERE p.name = :name")})
 public class Pattern implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,13 +44,9 @@ public class Pattern implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "Name")
-    private int name;
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "Path_img")
-    private String pathimg;
+    @Column(name = "Name")
+    private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPatern")
     private Collection<Img> imgCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pattern")
@@ -64,10 +59,9 @@ public class Pattern implements Serializable {
         this.id = id;
     }
 
-    public Pattern(Integer id, int name, String pathimg) {
+    public Pattern(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.pathimg = pathimg;
     }
 
     public Integer getId() {
@@ -78,20 +72,12 @@ public class Pattern implements Serializable {
         this.id = id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPathimg() {
-        return pathimg;
-    }
-
-    public void setPathimg(String pathimg) {
-        this.pathimg = pathimg;
     }
 
     @XmlTransient

@@ -26,6 +26,8 @@ import javax.inject.Named;
 @ManagedBean
 public class StoragesBean implements Serializable {
     
+        @EJB
+    PatternFacadeLocal patternFacadeLocal;
     @EJB
     StockFacadeLocal stockFacadeLocal;
     @EJB
@@ -36,7 +38,9 @@ public class StoragesBean implements Serializable {
     private Stock stock;
     
     private String name;
-    private String pathimg;
+    
+            
+          private  Pattern pattern;
     
     public Stock getStock() {
         return stock;
@@ -54,17 +58,19 @@ public class StoragesBean implements Serializable {
         this.name = name;
     }
     
-    public String getPathimg() {
-        return pathimg;
+     
+    public Pattern getPattern() {
+        return pattern;
     }
     
-    public void setPathimg(String pathimg) {
-        this.pathimg = pathimg;
+    public void setPattern(Pattern pattern) {
+        this.pattern = pattern;
     }
     
-    public ArrayList<Stock> viewStorages(User User) {
+    
+    public ArrayList<Stock> viewStorages(User user) {
         
-        ArrayList<Stock> stocks = stockUserFacadeLocal.findStockUser(User);
+        ArrayList<Stock> stocks = stockUserFacadeLocal.findStockUser(user);
         
         return stocks;
         
@@ -88,7 +94,7 @@ public class StoragesBean implements Serializable {
         StockUser stockUser = new StockUser();
         
         thisStock.setName(name);
-        thisStock.setPathimg("/img");
+        //thisStock.setPathimg("/img");
         stockFacadeLocal.create(thisStock);
 
         //косяк findlast
@@ -113,7 +119,7 @@ public class StoragesBean implements Serializable {
     public String selectEditStorage(int idStorage) {
         stock = stockFacadeLocal.findById(idStorage);
         
-        return "edit";
+        return "edit1";
         
     }
     
@@ -123,6 +129,12 @@ public class StoragesBean implements Serializable {
         stockFacadeLocal.edit(stock);
         return "success";
         
+    }
+
+    
+    public Collection<Pattern> viewPattern() {
+
+        return patternFacadeLocal.findAll();
     }
     
 }

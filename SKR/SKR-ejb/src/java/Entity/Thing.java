@@ -36,7 +36,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Thing.findById", query = "SELECT t FROM Thing t WHERE t.id = :id")
     , @NamedQuery(name = "Thing.findByName", query = "SELECT t FROM Thing t WHERE t.name = :name")
     , @NamedQuery(name = "Thing.findByQuantity", query = "SELECT t FROM Thing t WHERE t.quantity = :quantity")
-    , @NamedQuery(name = "Thing.findByDateupdate", query = "SELECT t FROM Thing t WHERE t.dateupdate = :dateupdate")})
+    , @NamedQuery(name = "Thing.findByDateupdate", query = "SELECT t FROM Thing t WHERE t.dateupdate = :dateupdate")
+    , @NamedQuery(name = "Thing.findByNameInStock", query = "SELECT t FROM Thing t WHERE (t.name = :name) AND (t.stock =:Stock)")
+    , @NamedQuery(name = "Thing.findByStorage", query = "SELECT t FROM Thing t WHERE t.stock = :Stock")
+    , @NamedQuery(name = "Thing.findByPathAndStock", query = "SELECT t FROM Thing t WHERE (t.name LIKE CONCAT('%',:name,'%')) AND (t.stock =:Stock)") 
+
+
+})
 public class Thing implements Serializable {
 
     private static final long serialVersionUID = 1L;

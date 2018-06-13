@@ -27,7 +27,7 @@ public class LoginBean implements Serializable {
     @EJB
     UserFacadeLocal userFacadeLocal;
     @EJB
-    RoleFacadeLocal role;
+    RoleFacadeLocal roleFacadeLocal;
 
     private User user;
     private String name;
@@ -85,8 +85,8 @@ public class LoginBean implements Serializable {
 
     public String InputSystem() {
 
-        setUser(userFacadeLocal.registered(name));
-        if (getUser() != null) {
+        if (userFacadeLocal.registered(name) != null) {
+            setUser(userFacadeLocal.registered(name));
             String goTo = userFacadeLocal.findUserRole(name, password);
             return goTo;
 
@@ -98,13 +98,12 @@ public class LoginBean implements Serializable {
     }
 
     public String toRegister() {
-
         if (!userFacadeLocal.registered(name, email)) {
 
             user.setName(name);
             user.setPassword(password);
             user.setEmail(email);
-            user.setRole(role.defaultRole());
+            user.setRole(roleFacadeLocal.defaultRole());
 
             userFacadeLocal.create(user);
 

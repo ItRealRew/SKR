@@ -29,8 +29,6 @@ public class ManageBean implements Serializable {
     @EJB
     UserFacadeLocal userFacadeLocal;
     @EJB
-    RoleFacadeLocal role;
-    @EJB
     StockFacadeLocal stockFacadeLocal;
     @EJB
     StockUserFacadeLocal stockUserFacadeLocal;

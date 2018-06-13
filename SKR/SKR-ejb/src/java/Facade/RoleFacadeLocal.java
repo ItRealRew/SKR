@@ -30,4 +30,6 @@ public interface RoleFacadeLocal {
 
     int count();
     
+    Role defaultRole();   
+    
 }

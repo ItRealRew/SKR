@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -36,7 +35,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Stock.findAll", query = "SELECT s FROM Stock s")
     , @NamedQuery(name = "Stock.findById", query = "SELECT s FROM Stock s WHERE s.id = :id")
-    , @NamedQuery(name = "Stock.findByName", query = "SELECT s FROM Stock s WHERE s.name = :name")})
+    , @NamedQuery(name = "Stock.findByName", query = "SELECT s FROM Stock s WHERE s.name = :name")
+    , @NamedQuery(name = "Stock.findByBlocked", query = "SELECT s FROM Stock s WHERE s.blocked = :blocked")
+        , @NamedQuery(name = "Stock.findLast", query = "select s from Stock s order by s.id desc")
+            , @NamedQuery(name = "Stock.search", query = "SELECT s FROM Stock s WHERE (s.name LIKE CONCAT('%',:name,'%'))")
+})
 public class Stock implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,9 +55,8 @@ public class Stock implements Serializable {
     private String name;
     @Basic(optional = false)
     @NotNull
-    @Lob
     @Column(name = "Blocked")
-    private byte[] blocked;
+    private boolean blocked;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStock")
     private Collection<StockUser> stockUserCollection;
     @JoinColumn(name = "Pattern", referencedColumnName = "id")
@@ -70,7 +72,7 @@ public class Stock implements Serializable {
         this.id = id;
     }
 
-    public Stock(Integer id, String name, byte[] blocked) {
+    public Stock(Integer id, String name, boolean blocked) {
         this.id = id;
         this.name = name;
         this.blocked = blocked;
@@ -92,11 +94,11 @@ public class Stock implements Serializable {
         this.name = name;
     }
 
-    public byte[] getBlocked() {
+    public boolean getBlocked() {
         return blocked;
     }
 
-    public void setBlocked(byte[] blocked) {
+    public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
 

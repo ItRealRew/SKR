@@ -29,5 +29,13 @@ public interface UserFacadeLocal {
     List<User> findRange(int[] range);
 
     int count();
-    
+
+    User findById(int id);
+
+    Boolean registered(String name, String email);
+
+    User registered(String name);
+
+    String findUserRole(String name, String password);
+
 }

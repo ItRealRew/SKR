@@ -162,11 +162,11 @@ public class ThingBean implements Serializable {
             Date date = new Date();
 
             thisThing.setName(name);
-            thisThing.setNameimg("/img");
+            //thisThing.setNameimg("/img");
             thisThing.setQuantity(getQuantity());
             thisThing.setUnit(un);
             thisThing.setDateupdate(date);
-            thisThing.setIdStock(stock);
+            thisThing.setStock(stock);
 
             thingFacadeLocal.create(thisThing);
 

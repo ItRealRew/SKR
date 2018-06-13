@@ -6,6 +6,7 @@
 package Facade;
 
 import Entity.Stock;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,22 @@ public class StockFacade extends AbstractFacade<Stock> implements StockFacadeLoc
     public StockFacade() {
         super(Stock.class);
     }
+
+    public Stock findById(int id) {
+        return em.find(Stock.class, id);
+    }
+
+    public Stock findlast() {
+        Stock s = (Stock) em.createNamedQuery("Stock.findLast").getResultList().get(0);
+        return s;
+    }
+
+    public List<Stock> search(String str) {
+
+        List<Stock> s = em.createNamedQuery("Stock.search").setParameter("name", str).getResultList();
+
+        return s;
+    }
+
     
 }
