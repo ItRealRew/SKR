@@ -64,9 +64,12 @@
                                                 dropdown="true"
                                                 completeMethod="#{thingBean.viewThingString()}"
                                                 />
-
+                            <!--<h:message for="PASSWORD"/>-->
+                            <!--<h:inputText id="PASSWORD" value="#{loginBean.password}" a:placeholder="PASSWORD" required="true" requiredMessage="Please enter your pasword"/>-->
                                 <label for="count">Количество:</label>
-                                <h:inputText value="#{thingBean.quantity}"></h:inputText><br></br>
+                                <br></br>
+                                <h:message for="quantity"/>
+                                <h:inputText id="quantity" value="#{thingBean.quantity}" converterMessage="Введите только число"></h:inputText><br></br>
                                 <label for="count">Измерение:  </label>
                                 <h:selectOneMenu value="#{thingBean.unitId}">
                                     <f:selectItems value="#{thingBean.selectUnit()}" var="item" 

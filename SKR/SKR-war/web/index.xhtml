@@ -54,15 +54,19 @@
                 <div class="login-page">
                     <div class="form">
                         <h:form class="register-form">
-                            <h:inputText a:placeholder="LOGIN" a:value="#{loginBean.name}"></h:inputText>
-                            <h:inputText value="#{loginBean.password}" a:placeholder="PASSWORD"></h:inputText>
-                            <h:inputText value="#{loginBean.email}" a:placeholder="EMAIL"></h:inputText>
+                            <!--<h:message for="LOGIN"/>-->
+                            <h:inputText id="LOGIN" a:placeholder="LOGIN" a:value="#{loginBean.name}" /><!--required="true" requiredMessage="Please enter your login"-->
+                            <<h:message for="PASSWORD"/>
+                            <!--<h:inputText id="PASSWORD" value="#{loginBean.password}" a:placeholder="PASSWORD" required="true" requiredMessage="Please enter your pasword"/>-->
+                            <h:inputSecret id="PASSWORD" value="#{loginBean.password}" a:placeholder="PASSWORD" />
+                             <h:inputText value="#{loginBean.email}" a:placeholder="EMAIL" required="true" requiredMessage="Please enter your email"></h:inputText>
                             <h:commandButton value="Зарегистрироваться" action="#{loginBean.toRegister()}" style="batonOK" />
                             <p class="message">Already registered? <a href="#">Sign In</a></p>
                        </h:form>
                         <h:form style='login-form'>
                             <h:inputText a:placeholder="LOGIN" a:value="#{loginBean.name}"></h:inputText>
-                            <h:inputText value="#{loginBean.password}" a:placeholder="PASSWORD"></h:inputText>
+                            <h:inputSecret id="PASSWORD" value="#{loginBean.password}" a:placeholder="PASSWORD" />
+                            <!--<h:inputText value="#{loginBean.password}" a:placeholder="PASSWORD"></h:inputText>-->
                             <h:commandButton value="Войти" action="#{loginBean.InputSystem()}" style="batonOK" />
                             <p class="message">Not registered? <a href="#">Create an account</a></p>
                         </h:form>

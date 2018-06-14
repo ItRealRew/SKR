@@ -47,7 +47,6 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
     }
 
     public String findUserRole(String name, String password) {
-        String result = "";
 
         List list = em.createNamedQuery("User.findUserRole").setParameter("name", name).setParameter("password", password).getResultList();
         if (list.size() == 1) {
@@ -62,7 +61,7 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
             }
 
         }
-        return result;
+        return null;
     }
     
         @Override

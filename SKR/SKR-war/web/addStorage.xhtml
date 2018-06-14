@@ -14,19 +14,24 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/thispage.css"></link>
         <link rel="stylesheet" href="css/style.css"></link>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"></link>
+
     </head>
 
     <body>
         <h:form>
             <div class="InAdd">
-                <label class="headpage" for="name">Название:</label>
-                <h:inputText value="#{storagesBean.name}"></h:inputText>
-                <label class="headpage" for="name">Вид:</label>
-                                            <h:selectOneMenu value="#{storagesBean.patternId}">
-                                    <f:selectItems value="#{storagesBean.viewPattern()}" var="item" 
-                                                   itemLabel="#{item.name}" itemValue="#{item.id}"/>
+                <label class="headpage">Название:</label>
+                
 
-                                </h:selectOneMenu>
+                <h:inputText value="#{storagesBean.name}" ></h:inputText>
+                <br></br><br></br>
+                <label class="headpage">Вид:</label>
+                <h:selectOneMenu value="#{storagesBean.patternId}">
+                    <f:selectItems value="#{storagesBean.viewPattern()}" var="item" 
+                                   itemLabel="#{item.name}" itemValue="#{item.id}"/>
+
+                </h:selectOneMenu>
+                <br></br><br></br>
             </div>
             <div class="add"> 
                 <h:commandLink action="#{storagesBean.addStorage(loginBean.user.id)}" value="ДОБАВИТЬ ХРАНИЛИЩЕ"></h:commandLink>

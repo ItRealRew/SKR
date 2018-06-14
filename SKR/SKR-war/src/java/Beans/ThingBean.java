@@ -18,6 +18,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 
+
 /**
  *
  * @author INFERUS
@@ -86,12 +87,11 @@ public class ThingBean implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
     public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Integer  quantity) {
         this.quantity = quantity;
     }
 

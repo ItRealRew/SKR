@@ -34,6 +34,8 @@ public class StoragesBean implements Serializable {
     StockUserFacadeLocal stockUserFacadeLocal;
     @EJB
     UserFacadeLocal userFacadeLocal;
+        @EJB
+        ThingFacadeLocal thingFacadeLocal;
 
     private Stock stock;
 
@@ -93,7 +95,13 @@ public class StoragesBean implements Serializable {
     public String delStorage(Stock idStorage) {
 
         stockUserFacadeLocal.remove(stockUserFacadeLocal.findStock(idStorage));
-
+        
+        ArrayList<Thing> things = thingFacadeLocal.findByStorage(idStorage);
+        
+        for(Thing thing:things){
+        thingFacadeLocal.remove(thing);
+        }
+        
         Stock stock = stockFacadeLocal.findById(idStorage.getId());
         stockFacadeLocal.remove(stock);
 
